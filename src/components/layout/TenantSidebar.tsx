@@ -8,6 +8,10 @@ import {
   MessageSquare,
   Settings,
   UserCheck,
+  BookOpen,
+  BarChart3,
+  Wrench,
+  Radio,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
@@ -23,19 +27,22 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
-const mainItems = [
-  { title: "Dashboard", url: "/tenant", icon: LayoutDashboard },
-  { title: "Students / শিক্ষার্থী", url: "/tenant/students", icon: Users },
-  { title: "Teachers / শিক্ষক", url: "/tenant/teachers", icon: GraduationCap },
-  { title: "Attendance / উপস্থিতি", url: "/tenant/attendance", icon: CalendarCheck },
-  { title: "Exams / পরীক্ষা", url: "/tenant/exams", icon: FileText },
+const academicItems = [
+  { title: "Dashboard", titleBn: "ড্যাশবোর্ড", url: "/tenant", icon: LayoutDashboard },
+  { title: "Students", titleBn: "শিক্ষার্থী", url: "/tenant/students", icon: Users },
+  { title: "Teachers", titleBn: "শিক্ষক", url: "/tenant/teachers", icon: GraduationCap },
+  { title: "Academic", titleBn: "একাডেমিক", url: "/tenant/academic", icon: BookOpen },
+  { title: "Attendance", titleBn: "উপস্থিতি", url: "/tenant/attendance", icon: CalendarCheck },
+  { title: "Exams", titleBn: "পরীক্ষা", url: "/tenant/exams", icon: FileText },
 ];
 
 const managementItems = [
-  { title: "Finance / আর্থিক", url: "/tenant/finance", icon: Wallet },
-  { title: "Communication", url: "/tenant/communication", icon: MessageSquare },
-  { title: "Staff / কর্মচারী", url: "/tenant/staff", icon: UserCheck },
-  { title: "Settings / সেটিংস", url: "/tenant/settings", icon: Settings },
+  { title: "Finance", titleBn: "আর্থিক", url: "/tenant/finance", icon: Wallet },
+  { title: "Reports", titleBn: "রিপোর্ট", url: "/tenant/reports", icon: BarChart3 },
+  { title: "Utilities", titleBn: "ইউটিলিটি", url: "/tenant/utilities", icon: Wrench },
+  { title: "Broadcast", titleBn: "সম্প্রচার", url: "/tenant/broadcast", icon: Radio },
+  { title: "Staff", titleBn: "কর্মচারী", url: "/tenant/staff", icon: UserCheck },
+  { title: "Settings", titleBn: "সেটিংস", url: "/tenant/settings", icon: Settings },
 ];
 
 export function TenantSidebar() {
@@ -63,8 +70,8 @@ export function TenantSidebar() {
           <SidebarGroupLabel>Academic</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {mainItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
+              {academicItems.map((item) => (
+                <SidebarMenuItem key={item.url}>
                   <SidebarMenuButton asChild>
                     <NavLink to={item.url} end className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
@@ -82,7 +89,7 @@ export function TenantSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {managementItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem key={item.url}>
                   <SidebarMenuButton asChild>
                     <NavLink to={item.url} end className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
