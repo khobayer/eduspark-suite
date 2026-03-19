@@ -12,13 +12,14 @@ import { TenantLayout } from "./components/layout/TenantLayout";
 import SuperAdminDashboard from "./pages/super-admin/SuperAdminDashboard";
 import TenantListPage from "./pages/super-admin/TenantListPage";
 import SubscriptionPlansPage from "./pages/super-admin/SubscriptionPlansPage";
-import AuditLogsPage from "./pages/super-admin/AuditLogsPage";
+import BillingPage from "./pages/super-admin/BillingPage";
+import FeatureFlagsPage from "./pages/super-admin/FeatureFlagsPage";
+import TemplateManagerPage from "./pages/super-admin/TemplateManagerPage";
+import SmsUsagePage from "./pages/super-admin/SmsUsagePage";
 import SupportTicketsPage from "./pages/super-admin/SupportTicketsPage";
-import {
-  BillingPage, FeatureFlagsPage, TemplateManagerPage, SmsUsagePage,
-  SystemSettingsPage, SuperAdminUsersPage, SuperAdminAnalyticsPage,
-  SuperAdminRevenuePage, SuperAdminRolesPage, SuperAdminNotificationsPage,
-} from "./pages/super-admin/SuperAdminStubPages";
+import AuditLogsPage from "./pages/super-admin/AuditLogsPage";
+import AdminUsersPage from "./pages/super-admin/AdminUsersPage";
+import SystemSettingsPage from "./pages/super-admin/SystemSettingsPage";
 
 // Tenant pages
 import TenantDashboard from "./pages/tenant/TenantDashboard";
@@ -53,11 +54,7 @@ const App = () => (
             <Route path="sms-usage" element={<SmsUsagePage />} />
             <Route path="support" element={<SupportTicketsPage />} />
             <Route path="audit-logs" element={<AuditLogsPage />} />
-            <Route path="users" element={<SuperAdminUsersPage />} />
-            <Route path="analytics" element={<SuperAdminAnalyticsPage />} />
-            <Route path="revenue" element={<SuperAdminRevenuePage />} />
-            <Route path="roles" element={<SuperAdminRolesPage />} />
-            <Route path="notifications" element={<SuperAdminNotificationsPage />} />
+            <Route path="users" element={<AdminUsersPage />} />
             <Route path="settings" element={<SystemSettingsPage />} />
           </Route>
 
