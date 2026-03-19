@@ -3,8 +3,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import { SuperAdminLayout } from "./components/layout/SuperAdminLayout";
+import { TenantLayout } from "./components/layout/TenantLayout";
+import SuperAdminDashboard from "./pages/super-admin/SuperAdminDashboard";
+import TenantDashboard from "./pages/tenant/TenantDashboard";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +20,17 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* Super Admin Routes */}
+          <Route path="/super-admin" element={<SuperAdminLayout />}>
+            <Route index element={<SuperAdminDashboard />} />
+          </Route>
+
+          {/* Tenant Routes */}
+          <Route path="/tenant" element={<TenantLayout />}>
+            <Route index element={<TenantDashboard />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
