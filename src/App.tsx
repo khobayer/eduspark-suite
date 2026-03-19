@@ -66,6 +66,7 @@ const App = () => (
             <Route index element={<TenantDashboard />} />
             <Route path="students" element={<StudentListPage />} />
             <Route path="students/create" element={<StudentCreatePage />} />
+            <Route path="students/edit/:id" element={<StudentCreatePage />} />
             <Route path="teachers" element={<TeachersPage />} />
             <Route path="academic" element={<AcademicPage />} />
             <Route path="attendance" element={<AttendancePage />} />
