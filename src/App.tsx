@@ -25,12 +25,15 @@ import SystemSettingsPage from "./pages/super-admin/SystemSettingsPage";
 import TenantDashboard from "./pages/tenant/TenantDashboard";
 import StudentListPage from "./pages/tenant/StudentListPage";
 import StudentCreatePage from "./pages/tenant/StudentCreatePage";
+import TeachersPage from "./pages/tenant/TeachersPage";
+import AcademicPage from "./pages/tenant/AcademicPage";
+import AttendancePage from "./pages/tenant/AttendancePage";
+import ExamsPage from "./pages/tenant/ExamsPage";
 import FinancePage from "./pages/tenant/FinancePage";
-import {
-  TeachersPage, AcademicPage, AttendancePage, ExamsPage, ReportsPage,
-  UtilitiesPage, BroadcastPage, TenantSettingsPage, TenantStaffPage,
-  TenantCommunicationPage,
-} from "./pages/tenant/TenantStubPages";
+import ReportsPage from "./pages/tenant/ReportsPage";
+import UtilitiesPage from "./pages/tenant/UtilitiesPage";
+import BroadcastPage from "./pages/tenant/BroadcastPage";
+import TenantSettingsPage from "./pages/tenant/TenantSettingsPage";
 
 const queryClient = new QueryClient();
 
@@ -71,8 +74,6 @@ const App = () => (
             <Route path="reports" element={<ReportsPage />} />
             <Route path="utilities" element={<UtilitiesPage />} />
             <Route path="broadcast" element={<BroadcastPage />} />
-            <Route path="staff" element={<TenantStaffPage />} />
-            <Route path="communication" element={<TenantCommunicationPage />} />
             <Route path="settings" element={<TenantSettingsPage />} />
           </Route>
 
