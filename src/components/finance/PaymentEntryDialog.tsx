@@ -65,7 +65,7 @@ export function PaymentEntryDialog({ open, onClose }: Props) {
               <Select>
                 <SelectTrigger><SelectValue placeholder="Select method" /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="cash">Cash / নগদ</SelectItem>
+                  <SelectItem value="cash">{t("Cash", "নগদ")}</SelectItem>
                   <SelectItem value="bkash">bKash</SelectItem>
                   <SelectItem value="nagad">Nagad</SelectItem>
                   <SelectItem value="bank">Bank Transfer</SelectItem>
