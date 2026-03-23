@@ -73,7 +73,7 @@ export default function TenantDashboard() {
                     <div className={`h-10 w-10 rounded-lg ${action.color} flex items-center justify-center`}>
                       <action.icon className="h-5 w-5" />
                     </div>
-                    <span className="text-xs font-medium text-foreground">{action.label}</span>
+                    <span className="text-xs font-medium text-foreground">{t(action.label, action.labelBn)}</span>
                   </button>
                 ))}
               </div>
