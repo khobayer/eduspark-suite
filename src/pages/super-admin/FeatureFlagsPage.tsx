@@ -47,7 +47,7 @@ export default function FeatureFlagsPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Feature Flags" description="Toggle features per plan, per tenant, or globally">
+      <PageHeader title="Feature Flags" titleBn="ফিচার ফ্ল্যাগ" description="Toggle features per plan, per tenant, or globally" descriptionBn="প্ল্যান, প্রতিষ্ঠান বা গ্লোবালি ফিচার টগল করুন">
         <Button size="sm"><Plus className="h-4 w-4 mr-1" />Create Flag</Button>
       </PageHeader>
 

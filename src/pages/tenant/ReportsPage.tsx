@@ -11,6 +11,7 @@ import {
 import { BarChart3, Users, Wallet, FileText, CalendarCheck, Download, Printer, Filter, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface ReportItem {
   name: string;
@@ -82,11 +83,12 @@ export default function ReportsPage() {
     const label = format === 'view' ? 'Preview generated' : format === 'pdf' ? 'PDF downloading...' : 'Excel downloading...';
     toast.success(label);
   };
+  const { t } = useLocale();
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Reports" titleBn="রিপোর্ট" description="Generate academic, financial, and administrative reports">
-        <Button size="sm" variant="outline"><Download className="h-4 w-4 mr-1" />Export All</Button>
+      <PageHeader title="Reports" titleBn="রিপোর্ট" description="Generate academic, financial, and administrative reports" descriptionBn="একাডেমিক, আর্থিক এবং প্রশাসনিক রিপোর্ট তৈরি করুন">
+        <Button size="sm" variant="outline"><Download className="h-4 w-4 mr-1" />{t("Export All", "সব রপ্তানি")}</Button>
       </PageHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">

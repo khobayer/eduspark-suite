@@ -36,7 +36,7 @@ export default function TemplateManagerPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Template Manager" description="Manage report cards, invoices, ID cards, and certificate templates">
+      <PageHeader title="Template Manager" titleBn="টেমপ্লেট ম্যানেজার" description="Manage report cards, invoices, ID cards, and certificate templates" descriptionBn="রিপোর্ট কার্ড, চালান, আইডি কার্ড এবং সনদপত্র টেমপ্লেট পরিচালনা করুন">
         <Button size="sm"><Plus className="h-4 w-4 mr-1" />Create Template</Button>
       </PageHeader>
 

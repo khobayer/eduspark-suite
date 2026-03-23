@@ -23,6 +23,8 @@ import { motion } from "framer-motion";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const categoryIcons: Record<string, string> = {
   event: '🎉', exam: '📝', holiday: '🏖️', academic: '📚', general: '📋',
@@ -32,10 +34,11 @@ export default function StudentPortalPage() {
   const totalFees = studentFees.reduce((a, f) => a + f.amount, 0);
   const totalPaid = studentFees.reduce((a, f) => a + f.paid, 0);
   const totalDue = totalFees - totalPaid;
+  const { t } = useLocale();
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Student Portal" titleBn="ছাত্র পোর্টাল" description="Your academic dashboard, results, fees, and notices" />
+      <PageHeader title="Student Portal" titleBn="ছাত্র পোর্টাল" description="Your academic dashboard, results, fees, and notices" descriptionBn="আপনার একাডেমিক ড্যাশবোর্ড, ফলাফল, ফি এবং নোটিশ" />
 
       {/* Profile Summary */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -58,8 +61,8 @@ export default function StudentPortalPage() {
                 </div>
               </div>
               <div className="flex gap-2 shrink-0">
-                <Button size="sm" variant="outline"><IdCard className="h-3.5 w-3.5 mr-1" />ID Card</Button>
-                <Button size="sm" variant="outline"><CreditCard className="h-3.5 w-3.5 mr-1" />Admit Card</Button>
+                <Button size="sm" variant="outline"><IdCard className="h-3.5 w-3.5 mr-1" />{t("ID Card", "আইডি কার্ড")}</Button>
+                <Button size="sm" variant="outline"><CreditCard className="h-3.5 w-3.5 mr-1" />{t("Admit Card", "প্রবেশপত্র")}</Button>
               </div>
             </div>
           </CardContent>
@@ -76,11 +79,11 @@ export default function StudentPortalPage() {
 
       <Tabs defaultValue="profile" className="space-y-4">
         <TabsList className="flex-wrap">
-          <TabsTrigger value="profile">Profile / প্রোফাইল</TabsTrigger>
-          <TabsTrigger value="attendance">Attendance / উপস্থিতি</TabsTrigger>
-          <TabsTrigger value="fees">Fees / ফি</TabsTrigger>
-          <TabsTrigger value="results">Results / ফলাফল</TabsTrigger>
-          <TabsTrigger value="notices">Notices / নোটিশ</TabsTrigger>
+          <TabsTrigger value="profile"><LocaleLabel en="Profile" bn="প্রোফাইল" /></TabsTrigger>
+          <TabsTrigger value="attendance"><LocaleLabel en="Attendance" bn="উপস্থিতি" /></TabsTrigger>
+          <TabsTrigger value="fees"><LocaleLabel en="Fees" bn="ফি" /></TabsTrigger>
+          <TabsTrigger value="results"><LocaleLabel en="Results" bn="ফলাফল" /></TabsTrigger>
+          <TabsTrigger value="notices"><LocaleLabel en="Notices" bn="নোটিশ" /></TabsTrigger>
         </TabsList>
 
         {/* Profile Tab */}

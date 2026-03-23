@@ -45,16 +45,16 @@ export default function BillingPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Billing & Payments" description="Track revenue, payments, and subscription billing">
+      <PageHeader title="Billing & Payments" titleBn="বিলিং ও পেমেন্ট" description="Track revenue, payments, and subscription billing" descriptionBn="রাজস্ব, পেমেন্ট এবং সাবস্ক্রিপশন বিলিং ট্র্যাক করুন">
         <Button size="sm" variant="outline"><Download className="h-4 w-4 mr-1" />Export</Button>
         <Button size="sm"><RefreshCw className="h-4 w-4 mr-1" />Sync Payments</Button>
       </PageHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Total Revenue" value={`৳${(billingStats.totalRevenue / 100000).toFixed(1)}L`} change={`+${billingStats.mrrGrowth}% MRR growth`} changeType="positive" icon={Wallet} index={0} />
-        <StatCard title="This Month" value={`৳${(billingStats.thisMonthRevenue / 1000).toFixed(0)}k`} change={`${billingStats.activeSubscriptions} active subs`} changeType="positive" icon={TrendingUp} index={1} />
-        <StatCard title="Pending" value={`৳${(billingStats.pendingPayments / 1000).toFixed(0)}k`} change="Awaiting confirmation" changeType="neutral" icon={AlertTriangle} index={2} />
-        <StatCard title="Failed" value={`৳${(billingStats.failedPayments / 1000).toFixed(0)}k`} change={`${billingStats.churnRate}% churn rate`} changeType="negative" icon={CreditCard} index={3} />
+        <StatCard title="Total Revenue" titleBn="মোট রাজস্ব" value={`৳${(billingStats.totalRevenue / 100000).toFixed(1)}L`} change={`+${billingStats.mrrGrowth}% MRR growth`} changeType="positive" icon={Wallet} index={0} />
+        <StatCard title="This Month" titleBn="এই মাস" value={`৳${(billingStats.thisMonthRevenue / 1000).toFixed(0)}k`} change={`${billingStats.activeSubscriptions} active subs`} changeType="positive" icon={TrendingUp} index={1} />
+        <StatCard title="Pending" titleBn="মুলতুবি" value={`৳${(billingStats.pendingPayments / 1000).toFixed(0)}k`} change="Awaiting confirmation" changeType="neutral" icon={AlertTriangle} index={2} />
+        <StatCard title="Failed" titleBn="ব্যর্থ" value={`৳${(billingStats.failedPayments / 1000).toFixed(0)}k`} change={`${billingStats.churnRate}% churn rate`} changeType="negative" icon={CreditCard} index={3} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

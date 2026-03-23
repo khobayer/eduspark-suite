@@ -26,7 +26,7 @@ const comparisonFeatures = [
 export default function SubscriptionPlansPage() {
   return (
     <div className="space-y-6">
-      <PageHeader title="Subscription Plans" description="Manage pricing plans for your tenants">
+      <PageHeader title="Subscription Plans" titleBn="সাবস্ক্রিপশন প্ল্যান" description="Manage pricing plans for your tenants" descriptionBn="আপনার প্রতিষ্ঠানগুলির জন্য প্রাইসিং প্ল্যান পরিচালনা করুন">
         <Button size="sm"><Plus className="h-4 w-4 mr-1" />Create Plan</Button>
       </PageHeader>
 

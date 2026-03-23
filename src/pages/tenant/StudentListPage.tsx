@@ -23,6 +23,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { StudentProfileDrawer } from "@/components/students/StudentProfileDrawer";
 import { useTenant } from "@/contexts/TenantContext";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const PAGE_SIZE = 8;
 
@@ -33,6 +34,7 @@ export default function StudentListPage() {
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const { labels } = useTenant();
+  const { t } = useLocale();
 
   const filtered = useMemo(() => {
     return studentsExtended.filter((s) => {
@@ -73,10 +75,10 @@ export default function StudentListPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title={labels.students} titleBn={labels.studentsBn} description="Manage student records, profiles, and enrollment">
+      <PageHeader title={labels.students} titleBn={labels.studentsBn} description="Manage student records, profiles, and enrollment" descriptionBn="শিক্ষার্থীদের রেকর্ড, প্রোফাইল এবং তালিকাভুক্তি পরিচালনা করুন">
         <Button size="sm" onClick={() => navigate("/tenant/students/create")}>
           <Plus className="h-4 w-4 mr-1" />
-          Add {labels.student}
+          {t(`Add ${labels.student}`, `${labels.studentBn} যোগ করুন`)}
         </Button>
       </PageHeader>
 

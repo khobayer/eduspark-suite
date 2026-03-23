@@ -14,6 +14,7 @@ import {
 import { classStructure, academicSessions } from "@/data/tenant-data";
 import { BookOpen, Users, Layers, Calendar, Plus, Settings, GraduationCap, Clock, LayoutGrid } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "@/contexts/LocaleContext";
 
 // Coaching mode data
 const courses = [
@@ -41,9 +42,11 @@ export default function AcademicPage() {
   const totalCoachingStudents = courses.reduce((a, c) => a + c.students, 0);
   const totalBatches = courses.reduce((a, c) => a + c.batches, 0);
 
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Academic Structure" titleBn="একাডেমিক কাঠামো" description="Manage classes, sections, subjects, courses, and batches">
+      <PageHeader title="Academic Structure" titleBn="একাডেমিক কাঠামো" description="Manage classes, sections, subjects, courses, and batches" descriptionBn="শ্রেণি, শাখা, বিষয়, কোর্স এবং ব্যাচ পরিচালনা করুন">
         <div className="flex items-center gap-2 p-1 bg-secondary rounded-lg">
           <Button
             size="sm"
@@ -51,7 +54,7 @@ export default function AcademicPage() {
             className="h-8 text-xs"
             onClick={() => setMode('school')}
           >
-            🏫 School Mode
+            🏫 {t("School", "স্কুল")}
           </Button>
           <Button
             size="sm"
@@ -59,10 +62,10 @@ export default function AcademicPage() {
             className="h-8 text-xs"
             onClick={() => setMode('coaching')}
           >
-            📚 Coaching Mode
+            📚 {t("Coaching", "কোচিং")}
           </Button>
         </div>
-        <Button size="sm"><Plus className="h-4 w-4 mr-1" />{mode === 'school' ? 'Add Class' : 'Add Course'}</Button>
+        <Button size="sm"><Plus className="h-4 w-4 mr-1" />{mode === 'school' ? t('Add Class', 'শ্রেণি যোগ') : t('Add Course', 'কোর্স যোগ')}</Button>
       </PageHeader>
 
       {mode === 'school' ? (

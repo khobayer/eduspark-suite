@@ -6,12 +6,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { notices, type Notice } from "@/data/tenant-data";
 import { IdCard, CreditCard, FileText, Bell, Pin, Plus, Download, Printer, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const utilityTools = [
-  { name: 'Student ID Card', nameBn: 'শিক্ষার্থী আইডি কার্ড', description: 'Generate photo ID cards for students', icon: IdCard, color: 'bg-info/10 text-info' },
-  { name: 'Admit Card', nameBn: 'প্রবেশপত্র', description: 'Generate exam admit cards with schedule', icon: CreditCard, color: 'bg-warning/10 text-warning' },
-  { name: 'Transfer Certificate', nameBn: 'ছাড়পত্র', description: 'Generate TC for outgoing students', icon: FileText, color: 'bg-accent text-accent-foreground' },
-  { name: 'Character Certificate', nameBn: 'চরিত্র সনদ', description: 'Generate character certificates', icon: Award, color: 'bg-success/10 text-success' },
+  { name: 'Student ID Card', nameBn: 'শিক্ষার্থী আইডি কার্ড', description: 'Generate photo ID cards for students', descriptionBn: 'শিক্ষার্থীদের জন্য ফটো আইডি কার্ড তৈরি করুন', icon: IdCard, color: 'bg-info/10 text-info' },
+  { name: 'Admit Card', nameBn: 'প্রবেশপত্র', description: 'Generate exam admit cards with schedule', descriptionBn: 'সময়সূচী সহ পরীক্ষার প্রবেশপত্র তৈরি করুন', icon: CreditCard, color: 'bg-warning/10 text-warning' },
+  { name: 'Transfer Certificate', nameBn: 'ছাড়পত্র', description: 'Generate TC for outgoing students', descriptionBn: 'বহিষ্কৃত শিক্ষার্থীদের জন্য TC তৈরি করুন', icon: FileText, color: 'bg-accent text-accent-foreground' },
+  { name: 'Character Certificate', nameBn: 'চরিত্র সনদ', description: 'Generate character certificates', descriptionBn: 'চরিত্র সনদপত্র তৈরি করুন', icon: Award, color: 'bg-success/10 text-success' },
 ];
 
 const categoryIcons: Record<string, string> = {
@@ -19,14 +21,16 @@ const categoryIcons: Record<string, string> = {
 };
 
 export default function UtilitiesPage() {
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Utilities" titleBn="ইউটিলিটি" description="ID cards, admit cards, certificates, and notices" />
+      <PageHeader title="Utilities" titleBn="ইউটিলিটি" description="ID cards, admit cards, certificates, and notices" descriptionBn="আইডি কার্ড, প্রবেশপত্র, সনদপত্র এবং নোটিশ" />
 
       <Tabs defaultValue="generators" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="generators">Generators / জেনারেটর</TabsTrigger>
-          <TabsTrigger value="notices">Notice Board / নোটিশ বোর্ড</TabsTrigger>
+          <TabsTrigger value="generators"><LocaleLabel en="Generators" bn="জেনারেটর" /></TabsTrigger>
+          <TabsTrigger value="notices"><LocaleLabel en="Notice Board" bn="নোটিশ বোর্ড" /></TabsTrigger>
         </TabsList>
 
         <TabsContent value="generators">
@@ -40,12 +44,11 @@ export default function UtilitiesPage() {
                         <tool.icon className="h-6 w-6" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-sm font-semibold text-foreground">{tool.name}</h3>
-                        <p className="text-xs text-muted-foreground mb-0.5">{tool.nameBn}</p>
-                        <p className="text-xs text-muted-foreground">{tool.description}</p>
+                        <h3 className="text-sm font-semibold text-foreground">{t(tool.name, tool.nameBn)}</h3>
+                        <p className="text-xs text-muted-foreground">{t(tool.description, tool.descriptionBn)}</p>
                         <div className="flex gap-2 mt-3">
-                          <Button size="sm" className="h-8 text-xs"><Printer className="h-3 w-3 mr-1" />Generate</Button>
-                          <Button size="sm" variant="outline" className="h-8 text-xs"><Download className="h-3 w-3 mr-1" />Bulk Download</Button>
+                          <Button size="sm" className="h-8 text-xs"><Printer className="h-3 w-3 mr-1" />{t("Generate", "তৈরি করুন")}</Button>
+                          <Button size="sm" variant="outline" className="h-8 text-xs"><Download className="h-3 w-3 mr-1" />{t("Bulk Download", "বাল্ক ডাউনলোড")}</Button>
                         </div>
                       </div>
                     </div>
@@ -58,7 +61,7 @@ export default function UtilitiesPage() {
 
         <TabsContent value="notices" className="space-y-4">
           <div className="flex justify-end">
-            <Button size="sm"><Plus className="h-4 w-4 mr-1" />Create Notice</Button>
+            <Button size="sm"><Plus className="h-4 w-4 mr-1" />{t("Create Notice", "নোটিশ তৈরি")}</Button>
           </div>
           {notices.map((notice, i) => (
             <motion.div key={notice.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}>
