@@ -99,7 +99,7 @@ export default function SmsUsagePage() {
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-sm text-muted-foreground text-xs">{r.lastSent}</TableCell>
+                    <TableCell className="text-xs text-muted-foreground">{r.lastSent}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

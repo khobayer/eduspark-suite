@@ -128,7 +128,7 @@ export default function TeachersPage() {
               <div>
                 <p className="font-semibold text-lg">{selected.name}</p>
                 <p className="text-sm text-muted-foreground">{selected.designation}</p>
-                <StatusBadge status={selected.status === 'on_leave' ? 'late' : selected.status} />
+                <StatusBadge status={selected.status} />
               </div>
             </div>
             <Separator />
