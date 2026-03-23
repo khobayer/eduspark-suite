@@ -378,7 +378,7 @@ export default function ExamsPage() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-base font-semibold">Report Card Preview / প্রগতি পত্র</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Report Card Preview", "প্রগতি পত্র")}</CardTitle>
                   <p className="text-xs text-muted-foreground mt-0.5">Preview and print individual student report cards</p>
                 </div>
                 <div className="flex gap-2">
