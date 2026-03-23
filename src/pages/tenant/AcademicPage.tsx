@@ -14,6 +14,7 @@ import {
 import { classStructure, academicSessions } from "@/data/tenant-data";
 import { BookOpen, Users, Layers, Calendar, Plus, Settings, GraduationCap, Clock, LayoutGrid } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "@/contexts/LocaleContext";
 
 // Coaching mode data
 const courses = [
