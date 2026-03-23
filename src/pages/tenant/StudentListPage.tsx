@@ -23,6 +23,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { StudentProfileDrawer } from "@/components/students/StudentProfileDrawer";
 import { useTenant } from "@/contexts/TenantContext";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const PAGE_SIZE = 8;
 
