@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { recentActivities } from "@/data/mock-data";
 import { Users, Wallet, FileText, CalendarCheck, Bell } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const iconMap = {
   student: Users,
@@ -12,11 +13,12 @@ const iconMap = {
 };
 
 export function RecentActivity() {
+  const { t } = useLocale();
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
       <Card>
         <CardHeader className="pb-3">
-          <CardTitle className="text-base font-semibold">Recent Activity</CardTitle>
+          <CardTitle className="text-base font-semibold">{t("Recent Activity", "সাম্প্রতিক কার্যকলাপ")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           {recentActivities.map((activity) => {

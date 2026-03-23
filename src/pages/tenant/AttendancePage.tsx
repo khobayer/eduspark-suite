@@ -93,10 +93,10 @@ export default function AttendancePage() {
 
       <Tabs defaultValue="students" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="students">Student Attendance / শিক্ষার্থী</TabsTrigger>
-          <TabsTrigger value="staff">Staff Attendance / কর্মচারী</TabsTrigger>
-          <TabsTrigger value="absent">Absent Summary / অনুপস্থিত</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics / বিশ্লেষণ</TabsTrigger>
+          <TabsTrigger value="students">{t("Student Attendance", "শিক্ষার্থী")}</TabsTrigger>
+          <TabsTrigger value="staff">{t("Staff Attendance", "কর্মচারী")}</TabsTrigger>
+          <TabsTrigger value="absent">{t("Absent Summary", "অনুপস্থিত")}</TabsTrigger>
+          <TabsTrigger value="analytics">{t("Analytics", "বিশ্লেষণ")}</TabsTrigger>
         </TabsList>
 
         {/* Student Attendance */}
@@ -221,7 +221,7 @@ export default function AttendancePage() {
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-base font-semibold">Chronically Absent Students / দীর্ঘ অনুপস্থিত</CardTitle>
+                    <CardTitle className="text-base font-semibold">{t("Chronically Absent Students", "দীর্ঘ অনুপস্থিত")}</CardTitle>
                     <p className="text-xs text-muted-foreground mt-0.5">Students absent 5+ days this month</p>
                   </div>
                   <Badge variant="destructive" className="text-xs">{absentStudents.length} students</Badge>
@@ -272,7 +272,7 @@ export default function AttendancePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-base font-semibold">Weekly Summary / সাপ্তাহিক সারসংক্ষেপ</CardTitle>
+                <CardTitle className="text-base font-semibold">{t("Weekly Summary", "সাপ্তাহিক সারসংক্ষেপ")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="h-[300px]">

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { useLocale } from "@/contexts/LocaleContext";
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
@@ -11,6 +12,7 @@ import { AlertTriangle, Phone, MessageSquare, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function FinanceDueTrackerTab() {
+  const { t } = useLocale();
   const stats = financeStatsExtended;
   const totalOverdue = overdueStudents.reduce((a, s) => a + s.totalDue, 0);
 
@@ -42,7 +44,7 @@ export function FinanceDueTrackerTab() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <AlertTriangle className="h-4 w-4 text-destructive" />
-                <CardTitle className="text-sm font-semibold">Overdue Students / বকেয়া শিক্ষার্থী</CardTitle>
+                <CardTitle className="text-sm font-semibold">{t("Overdue Students", "বকেয়া শিক্ষার্থী")}</CardTitle>
               </div>
               <Button size="sm" variant="outline">
                 <Send className="h-3.5 w-3.5 mr-1" />Send Reminders

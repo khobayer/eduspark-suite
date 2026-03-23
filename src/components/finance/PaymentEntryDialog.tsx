@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { CreditCard } from "lucide-react";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface Props {
   open: boolean;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 export function PaymentEntryDialog({ open, onClose }: Props) {
+  const { t } = useLocale();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Payment recorded successfully!", { description: "Receipt has been generated." });
@@ -29,7 +31,7 @@ export function PaymentEntryDialog({ open, onClose }: Props) {
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <CreditCard className="h-5 w-5 text-primary" />
-            Record Payment / পেমেন্ট রেকর্ড
+            {t("Record Payment", "পেমেন্ট রেকর্ড")}
           </DialogTitle>
           <DialogDescription>Enter payment details against an invoice or student</DialogDescription>
         </DialogHeader>
@@ -63,7 +65,7 @@ export function PaymentEntryDialog({ open, onClose }: Props) {
               <Select>
                 <SelectTrigger><SelectValue placeholder="Select method" /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="cash">Cash / নগদ</SelectItem>
+                  <SelectItem value="cash">{t("Cash", "নগদ")}</SelectItem>
                   <SelectItem value="bkash">bKash</SelectItem>
                   <SelectItem value="nagad">Nagad</SelectItem>
                   <SelectItem value="bank">Bank Transfer</SelectItem>
@@ -83,7 +85,7 @@ export function PaymentEntryDialog({ open, onClose }: Props) {
           </div>
 
           <div className="space-y-1.5">
-            <Label>Note / মন্তব্য</Label>
+            <Label>{t("Note", "মন্তব্য")}</Label>
             <Textarea placeholder="Optional payment note..." rows={2} />
           </div>
 

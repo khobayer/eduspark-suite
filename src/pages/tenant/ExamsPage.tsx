@@ -174,7 +174,7 @@ export default function ExamsPage() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <div>
-                  <CardTitle className="text-base font-semibold">Marks Entry / নম্বর এন্ট্রি</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Marks Entry", "নম্বর এন্ট্রি")}</CardTitle>
                   <p className="text-xs text-muted-foreground mt-0.5">Enter marks for each student per subject</p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -242,7 +242,7 @@ export default function ExamsPage() {
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-base font-semibold">Tabulation Sheet / ফলাফল তালিকা</CardTitle>
+                    <CardTitle className="text-base font-semibold">{t("Tabulation Sheet", "ফলাফল তালিকা")}</CardTitle>
                     <p className="text-xs text-muted-foreground mt-0.5">SSC Mock Test - Class 10A · Session 2025 · Total Marks: 500</p>
                   </div>
                   <div className="flex gap-2">
@@ -307,7 +307,7 @@ export default function ExamsPage() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-base font-semibold">Merit List / মেধা তালিকা</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Merit List", "মেধা তালিকা")}</CardTitle>
                   <p className="text-xs text-muted-foreground mt-0.5">Top performers ranked by GPA</p>
                 </div>
                 <Button size="sm" variant="outline"><Printer className="h-3.5 w-3.5 mr-1" />Print Merit List</Button>
@@ -378,7 +378,7 @@ export default function ExamsPage() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-base font-semibold">Report Card Preview / প্রগতি পত্র</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Report Card Preview", "প্রগতি পত্র")}</CardTitle>
                   <p className="text-xs text-muted-foreground mt-0.5">Preview and print individual student report cards</p>
                 </div>
                 <div className="flex gap-2">
@@ -475,7 +475,7 @@ export default function ExamsPage() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <Card className="h-full">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-semibold">Subject Performance / বিষয়ভিত্তিক পারফরম্যান্স</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Subject Performance", "বিষয়ভিত্তিক পারফরম্যান্স")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[280px]">
@@ -498,7 +498,7 @@ export default function ExamsPage() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
               <Card className="h-full">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-semibold">Pass Rate by Subject / পাসের হার</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Pass Rate by Subject", "পাসের হার")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">

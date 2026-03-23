@@ -15,6 +15,7 @@ import {
   FileText, Upload, Download, Shield, Clock, ArrowUpRight, ArrowDownRight,
   Printer, Edit, GraduationCap,
 } from "lucide-react";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface StudentProfileDrawerProps {
   student: StudentFull | null;
@@ -43,6 +44,7 @@ const resultLabels: Record<string, { label: string; color: string }> = {
 };
 
 export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerProps) {
+  const { t } = useLocale();
   if (!student) return null;
 
   const initials = student.name.split(" ").map((n) => n[0]).join("");
@@ -102,11 +104,11 @@ export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerP
             <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                  Personal Information / ব্যক্তিগত তথ্য
+                  {t("Personal Information", "ব্যক্তিগত তথ্য")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-0 divide-y">
-                <InfoRow icon={User} label="Gender" value={student.gender === "male" ? "Male / ছেলে" : "Female / মেয়ে"} />
+                <InfoRow icon={User} label="Gender" value={student.gender === "male" ? t("Male", "ছেলে") : t("Female", "মেয়ে")} />
                 <InfoRow icon={Calendar} label="Date of Birth" value={student.dob} />
                 <InfoRow icon={Droplets} label="Blood Group" value={student.bloodGroup} />
                 <InfoRow icon={Heart} label="Religion" value={student.religion} />
@@ -119,7 +121,7 @@ export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerP
             <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                  Academic Details / একাডেমিক তথ্য
+                  {t("Academic Details", "একাডেমিক তথ্য")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-0 divide-y">
@@ -133,7 +135,7 @@ export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerP
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                    Primary Guardian / প্রধান অভিভাবক
+                    {t("Primary Guardian", "প্রধান অভিভাবক")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -247,7 +249,7 @@ export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerP
           {/* Enrollment History Tab */}
           <TabsContent value="history" className="space-y-4 mt-0">
             <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-              Enrollment History / ভর্তির ইতিহাস
+              {t("Enrollment History", "ভর্তির ইতিহাস")}
             </p>
             <div className="relative">
               {/* Timeline line */}

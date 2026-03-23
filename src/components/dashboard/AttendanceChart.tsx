@@ -2,13 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { attendanceChartData } from "@/data/mock-data";
 import { motion } from "framer-motion";
+import { useLocale } from "@/contexts/LocaleContext";
 
 export function AttendanceChart() {
+  const { t } = useLocale();
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
       <Card>
         <CardHeader className="pb-2">
-          <CardTitle className="text-base font-semibold">Weekly Attendance / সাপ্তাহিক উপস্থিতি</CardTitle>
+          <CardTitle className="text-base font-semibold">{t("Weekly Attendance", "সাপ্তাহিক উপস্থিতি")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-[260px]">

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { financeInvoices } from "@/data/finance-data";
 import { Printer, Download, CheckCircle } from "lucide-react";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface Props {
   open: boolean;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export function ReceiptPreviewDialog({ open, onClose, invoiceId }: Props) {
+  const { t } = useLocale();
   const invoice = financeInvoices.find((i) => i.id === invoiceId);
   if (!invoice) return null;
 
@@ -34,7 +36,7 @@ export function ReceiptPreviewDialog({ open, onClose, invoiceId }: Props) {
           <Separator />
 
           <div className="text-center">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Payment Receipt / পেমেন্ট রসিদ</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{t("Payment Receipt", "পেমেন্ট রসিদ")}</p>
             <p className="text-sm font-mono text-muted-foreground mt-1">{invoice.receiptNo || `RCP-${invoice.id.padStart(3, "0")}`}</p>
           </div>
 

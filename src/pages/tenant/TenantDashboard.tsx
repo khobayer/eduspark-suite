@@ -22,10 +22,10 @@ const financeChartData = [
 ];
 
 const quickActions = [
-  { label: 'Add Student', icon: UserPlus, href: '/tenant/students/create', color: 'bg-primary/10 text-primary' },
-  { label: 'Record Payment', icon: CreditCard, href: '/tenant/finance', color: 'bg-success/10 text-success' },
-  { label: 'Mark Attendance', icon: CalendarCheck, href: '/tenant/attendance', color: 'bg-info/10 text-info' },
-  { label: 'New Broadcast', icon: MessageSquare, href: '/tenant/broadcast', color: 'bg-warning/10 text-warning' },
+  { label: 'Add Student', labelBn: 'শিক্ষার্থী যোগ', icon: UserPlus, href: '/tenant/students/create', color: 'bg-primary/10 text-primary' },
+  { label: 'Record Payment', labelBn: 'পেমেন্ট রেকর্ড', icon: CreditCard, href: '/tenant/finance', color: 'bg-success/10 text-success' },
+  { label: 'Mark Attendance', labelBn: 'উপস্থিতি চিহ্নিত', icon: CalendarCheck, href: '/tenant/attendance', color: 'bg-info/10 text-info' },
+  { label: 'New Broadcast', labelBn: 'নতুন সম্প্রচার', icon: MessageSquare, href: '/tenant/broadcast', color: 'bg-warning/10 text-warning' },
 ];
 
 const upcomingReminders = [
@@ -60,7 +60,7 @@ export default function TenantDashboard() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="lg:col-span-2">
           <Card>
             <CardHeader className="pb-3">
-              <CardTitle className="text-base font-semibold">Quick Actions / দ্রুত কার্যক্রম</CardTitle>
+              <CardTitle className="text-base font-semibold">{t("Quick Actions", "দ্রুত কার্যক্রম")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -73,7 +73,7 @@ export default function TenantDashboard() {
                     <div className={`h-10 w-10 rounded-lg ${action.color} flex items-center justify-center`}>
                       <action.icon className="h-5 w-5" />
                     </div>
-                    <span className="text-xs font-medium text-foreground">{action.label}</span>
+                    <span className="text-xs font-medium text-foreground">{t(action.label, action.labelBn)}</span>
                   </button>
                 ))}
               </div>
@@ -111,7 +111,7 @@ export default function TenantDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-base font-semibold">Income vs Expense / আয় ও ব্যয়</CardTitle>
+                <CardTitle className="text-base font-semibold">{t("Income vs Expense", "আয় ও ব্যয়")}</CardTitle>
                 <Button variant="ghost" size="sm" className="text-xs" onClick={() => navigate('/tenant/finance')}>
                   Details <ArrowRight className="h-3 w-3 ml-1" />
                 </Button>

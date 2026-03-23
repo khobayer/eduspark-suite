@@ -79,8 +79,8 @@ export default function AcademicPage() {
 
           <Tabs defaultValue="classes" className="space-y-4">
             <TabsList>
-              <TabsTrigger value="classes">Classes & Sections / শ্রেণি ও শাখা</TabsTrigger>
-              <TabsTrigger value="sessions">Academic Sessions / শিক্ষাবর্ষ</TabsTrigger>
+              <TabsTrigger value="classes">{t("Classes & Sections", "শ্রেণি ও শাখা")}</TabsTrigger>
+              <TabsTrigger value="sessions">{t("Academic Sessions", "শিক্ষাবর্ষ")}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="classes" className="space-y-4">
@@ -141,7 +141,7 @@ export default function AcademicPage() {
                 <Card>
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-base font-semibold">Academic Sessions / শিক্ষাবর্ষ</CardTitle>
+                      <CardTitle className="text-base font-semibold">{t("Academic Sessions", "শিক্ষাবর্ষ")}</CardTitle>
                       <Button size="sm" variant="outline"><Plus className="h-3.5 w-3.5 mr-1" />Add Session</Button>
                     </div>
                   </CardHeader>
@@ -183,8 +183,8 @@ export default function AcademicPage() {
 
           <Tabs defaultValue="courses" className="space-y-4">
             <TabsList>
-              <TabsTrigger value="courses">Courses / কোর্স</TabsTrigger>
-              <TabsTrigger value="batches">Batches & Schedule / ব্যাচ</TabsTrigger>
+              <TabsTrigger value="courses">{t("Courses", "কোর্স")}</TabsTrigger>
+              <TabsTrigger value="batches">{t("Batches & Schedule", "ব্যাচ")}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="courses" className="space-y-4">
@@ -225,7 +225,7 @@ export default function AcademicPage() {
                 <Card>
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-base font-semibold">Batches & Schedule / ব্যাচ তালিকা</CardTitle>
+                      <CardTitle className="text-base font-semibold">{t("Batches & Schedule", "ব্যাচ তালিকা")}</CardTitle>
                       <Button size="sm" variant="outline"><Plus className="h-3.5 w-3.5 mr-1" />Add Batch</Button>
                     </div>
                   </CardHeader>

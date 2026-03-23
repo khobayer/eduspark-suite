@@ -13,6 +13,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { useLocale } from "@/contexts/LocaleContext";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { ArrowLeft, Save, Plus, Trash2, Upload, FileText } from "lucide-react";
@@ -64,6 +65,7 @@ interface GuardianEntry {
 export default function StudentCreatePage() {
   const navigate = useNavigate();
   const { labels } = useTenant();
+  const { t } = useLocale();
   const [guardians, setGuardians] = useState<GuardianEntry[]>([
     { id: 1, name: "", nameBn: "", relation: "father", phone: "", email: "", occupation: "", nid: "", address: "" },
   ]);
@@ -117,7 +119,7 @@ export default function StudentCreatePage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                Personal Information / ব্যক্তিগত তথ্য
+                {t("Personal Information", "ব্যক্তিগত তথ্য")}
               </CardTitle>
               <CardDescription>Basic personal details of the student</CardDescription>
             </CardHeader>
@@ -129,7 +131,7 @@ export default function StudentCreatePage() {
                   {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="nameBn">Name in Bangla / বাংলায় নাম</Label>
+                  <Label htmlFor="nameBn">{t("Name in Bangla", "বাংলায় নাম")}</Label>
                   <Input id="nameBn" placeholder="যেমন: আহমেদ খান" {...register("nameBn")} />
                 </div>
                 <div className="space-y-1.5">
@@ -142,8 +144,8 @@ export default function StudentCreatePage() {
                   <Select onValueChange={(v) => setValue("gender", v as "male" | "female")}>
                     <SelectTrigger><SelectValue placeholder="Select gender" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="male">Male / ছেলে</SelectItem>
-                      <SelectItem value="female">Female / মেয়ে</SelectItem>
+                      <SelectItem value="male">{t("Male", "ছেলে")}</SelectItem>
+                      <SelectItem value="female">{t("Female", "মেয়ে")}</SelectItem>
                     </SelectContent>
                   </Select>
                   {errors.gender && <p className="text-xs text-destructive">{errors.gender.message}</p>}
@@ -194,7 +196,7 @@ export default function StudentCreatePage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                Academic Details / একাডেমিক তথ্য
+                {t("Academic Details", "একাডেমিক তথ্য")}
               </CardTitle>
               <CardDescription>Class, section, and enrollment info</CardDescription>
             </CardHeader>
@@ -280,11 +282,11 @@ export default function StudentCreatePage() {
                       <Select value={g.relation} onValueChange={(v) => updateGuardian(g.id, "relation", v)}>
                         <SelectTrigger><SelectValue /></SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="father">Father / বাবা</SelectItem>
-                          <SelectItem value="mother">Mother / মা</SelectItem>
-                          <SelectItem value="guardian">Other Guardian / অভিভাবক</SelectItem>
-                          <SelectItem value="uncle">Uncle / চাচা</SelectItem>
-                          <SelectItem value="sibling">Sibling / ভাই/বোন</SelectItem>
+                          <SelectItem value="father">{t("Father", "বাবা")}</SelectItem>
+                          <SelectItem value="mother">{t("Mother", "মা")}</SelectItem>
+                          <SelectItem value="guardian">{t("Other Guardian", "অভিভাবক")}</SelectItem>
+                          <SelectItem value="uncle">{t("Uncle", "চাচা")}</SelectItem>
+                          <SelectItem value="sibling">{t("Sibling", "ভাই/বোন")}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -312,7 +314,7 @@ export default function StudentCreatePage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                Documents / নথিপত্র
+                {t("Documents", "নথিপত্র")}
               </CardTitle>
               <CardDescription>Upload required documents for enrollment</CardDescription>
             </CardHeader>
@@ -345,7 +347,7 @@ export default function StudentCreatePage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                Additional Notes / অতিরিক্ত তথ্য
+                {t("Additional Notes", "অতিরিক্ত তথ্য")}
               </CardTitle>
             </CardHeader>
             <CardContent>
