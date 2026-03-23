@@ -225,7 +225,7 @@ export default function AcademicPage() {
                 <Card>
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-base font-semibold">Batches & Schedule / ব্যাচ তালিকা</CardTitle>
+                      <CardTitle className="text-base font-semibold">{t("Batches & Schedule", "ব্যাচ তালিকা")}</CardTitle>
                       <Button size="sm" variant="outline"><Plus className="h-3.5 w-3.5 mr-1" />Add Batch</Button>
                     </div>
                   </CardHeader>

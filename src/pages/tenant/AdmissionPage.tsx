@@ -171,7 +171,7 @@ export default function AdmissionPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card>
               <CardHeader className="pb-3">
-                <CardTitle className="text-base font-semibold">Admission Funnel / ভর্তি ফানেল</CardTitle>
+                <CardTitle className="text-base font-semibold">{t("Admission Funnel", "ভর্তি ফানেল")}</CardTitle>
                 <p className="text-xs text-muted-foreground">Current admission cycle conversion rates</p>
               </CardHeader>
               <CardContent>

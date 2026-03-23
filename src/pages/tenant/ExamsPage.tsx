@@ -498,7 +498,7 @@ export default function ExamsPage() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
               <Card className="h-full">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-semibold">Pass Rate by Subject / পাসের হার</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Pass Rate by Subject", "পাসের হার")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">

@@ -272,7 +272,7 @@ export default function AttendancePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-base font-semibold">Weekly Summary / সাপ্তাহিক সারসংক্ষেপ</CardTitle>
+                <CardTitle className="text-base font-semibold">{t("Weekly Summary", "সাপ্তাহিক সারসংক্ষেপ")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="h-[300px]">

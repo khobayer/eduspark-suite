@@ -143,7 +143,7 @@ export default function StudentPortalPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-base font-semibold">Monthly Attendance / মাসিক উপস্থিতি</CardTitle>
+                <CardTitle className="text-base font-semibold">{t("Monthly Attendance", "মাসিক উপস্থিতি")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="h-[260px]">
