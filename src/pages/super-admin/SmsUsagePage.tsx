@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/table";
 import { smsRecords, smsStats, smsChartData } from "@/data/super-admin-data";
 import { MessageSquare, Send, AlertTriangle, DollarSign, Users, TrendingUp } from "lucide-react";
+import { EmptyState } from "@/components/shared/EmptyState";
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
