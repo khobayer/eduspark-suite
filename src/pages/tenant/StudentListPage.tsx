@@ -75,10 +75,10 @@ export default function StudentListPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title={labels.students} titleBn={labels.studentsBn} description="Manage student records, profiles, and enrollment">
+      <PageHeader title={labels.students} titleBn={labels.studentsBn} description="Manage student records, profiles, and enrollment" descriptionBn="শিক্ষার্থীদের রেকর্ড, প্রোফাইল এবং তালিকাভুক্তি পরিচালনা করুন">
         <Button size="sm" onClick={() => navigate("/tenant/students/create")}>
           <Plus className="h-4 w-4 mr-1" />
-          Add {labels.student}
+          {t(`Add ${labels.student}`, `${labels.studentBn} যোগ করুন`)}
         </Button>
       </PageHeader>
 
