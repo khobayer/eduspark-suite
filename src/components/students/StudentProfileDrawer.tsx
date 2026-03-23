@@ -103,7 +103,7 @@ export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerP
             <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                  Personal Information / ব্যক্তিগত তথ্য
+                  {t("Personal Information", "ব্যক্তিগত তথ্য")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-0 divide-y">
