@@ -23,6 +23,8 @@ import { motion } from "framer-motion";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const categoryIcons: Record<string, string> = {
   event: '🎉', exam: '📝', holiday: '🏖️', academic: '📚', general: '📋',
