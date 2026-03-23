@@ -96,7 +96,7 @@ export default function TeachersPage() {
                       </div>
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">{t.phone}</TableCell>
-                    <TableCell><StatusBadge status={t.status === 'on_leave' ? 'late' : t.status} /></TableCell>
+                    <TableCell><StatusBadge status={t.status} /></TableCell>
                     <TableCell>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -128,7 +128,7 @@ export default function TeachersPage() {
               <div>
                 <p className="font-semibold text-lg">{selected.name}</p>
                 <p className="text-sm text-muted-foreground">{selected.designation}</p>
-                <StatusBadge status={selected.status === 'on_leave' ? 'late' : selected.status} />
+                <StatusBadge status={selected.status} />
               </div>
             </div>
             <Separator />

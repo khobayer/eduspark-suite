@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/table";
 import { smsRecords, smsStats, smsChartData } from "@/data/super-admin-data";
 import { MessageSquare, Send, AlertTriangle, DollarSign, Users, TrendingUp } from "lucide-react";
+import { EmptyState } from "@/components/shared/EmptyState";
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
@@ -99,14 +100,31 @@ export default function SmsUsagePage() {
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-sm text-muted-foreground text-xs">{r.lastSent}</TableCell>
+                    <TableCell className="text-xs text-muted-foreground">{r.lastSent}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
+            {filtered.length > 10 && (
+              <div className="flex items-center justify-center px-4 py-3 border-t">
+                <p className="text-xs text-muted-foreground">Showing {Math.min(filtered.length, 10)} of {filtered.length} tenants</p>
+              </div>
+            )}
           </CardContent>
         </Card>
       </motion.div>
+
+      {filtered.length === 0 && (
+        <Card>
+          <CardContent className="p-0">
+            <EmptyState
+              icon={<MessageSquare className="h-7 w-7 text-muted-foreground" />}
+              title="No tenants found"
+              description="Try adjusting your search or filters"
+            />
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

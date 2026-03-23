@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { FilterBar } from "@/components/shared/FilterBar";
+import { EmptyState } from "@/components/shared/EmptyState";
 import { DetailDrawer } from "@/components/shared/DetailDrawer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -50,54 +51,65 @@ export default function TemplateManagerPage() {
         showExport={false}
       />
 
-      {Object.entries(grouped).map(([type, items]) => {
-        const conf = typeConfig[type];
-        return (
-          <div key={type} className="space-y-3">
-            <div className="flex items-center gap-2">
-              <conf.icon className="h-4 w-4 text-muted-foreground" />
-              <h2 className="text-sm font-semibold text-foreground">{conf.label}s</h2>
-              <Badge variant="secondary" className="text-[10px]">{items.length}</Badge>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {items.map((tmpl, i) => (
-                <motion.div key={tmpl.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}>
-                  <Card className="border hover:shadow-sm transition-shadow group cursor-pointer" onClick={() => setSelected(tmpl)}>
-                    <CardContent className="p-5">
-                      {/* Template Preview Placeholder */}
-                      <div className="h-28 rounded-lg bg-muted/50 border-2 border-dashed border-border mb-4 flex items-center justify-center">
-                        <conf.icon className="h-8 w-8 text-muted-foreground/30" />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex items-start justify-between">
-                          <h3 className="text-sm font-semibold text-foreground">{tmpl.name}</h3>
-                          {tmpl.isDefault && (
-                            <Badge variant="secondary" className="text-[10px] shrink-0">Default</Badge>
-                          )}
+      {Object.keys(grouped).length === 0 ? (
+        <Card>
+          <CardContent className="p-0">
+            <EmptyState
+              icon={<FileText className="h-7 w-7 text-muted-foreground" />}
+              title="No templates found"
+              description="Try adjusting your search or filters"
+            />
+          </CardContent>
+        </Card>
+      ) : (
+        Object.entries(grouped).map(([type, items]) => {
+          const conf = typeConfig[type];
+          return (
+            <div key={type} className="space-y-3">
+              <div className="flex items-center gap-2">
+                <conf.icon className="h-4 w-4 text-muted-foreground" />
+                <h2 className="text-sm font-semibold text-foreground">{conf.label}s</h2>
+                <Badge variant="secondary" className="text-[10px]">{items.length}</Badge>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {items.map((tmpl, i) => (
+                  <motion.div key={tmpl.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}>
+                    <Card className="border hover:shadow-sm transition-shadow group cursor-pointer" onClick={() => setSelected(tmpl)}>
+                      <CardContent className="p-5">
+                        <div className="h-28 rounded-lg bg-muted/50 border-2 border-dashed border-border mb-4 flex items-center justify-center">
+                          <conf.icon className="h-8 w-8 text-muted-foreground/30" />
                         </div>
-                        <p className="text-xs text-muted-foreground line-clamp-2">{tmpl.description}</p>
-                        <div className="flex items-center justify-between pt-1">
-                          <div className="flex items-center gap-2">
-                            <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${conf.color}`}>
-                              {conf.label}
-                            </span>
-                            {tmpl.status === 'draft' && (
-                              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-warning/10 text-warning border-warning/20">
-                                Draft
-                              </span>
+                        <div className="space-y-2">
+                          <div className="flex items-start justify-between">
+                            <h3 className="text-sm font-semibold text-foreground">{tmpl.name}</h3>
+                            {tmpl.isDefault && (
+                              <Badge variant="secondary" className="text-[10px] shrink-0">Default</Badge>
                             )}
                           </div>
-                          <span className="text-[11px] text-muted-foreground">{tmpl.usedBy} tenants</span>
+                          <p className="text-xs text-muted-foreground line-clamp-2">{tmpl.description}</p>
+                          <div className="flex items-center justify-between pt-1">
+                            <div className="flex items-center gap-2">
+                              <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${conf.color}`}>
+                                {conf.label}
+                              </span>
+                              {tmpl.status === 'draft' && (
+                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-warning/10 text-warning border-warning/20">
+                                  Draft
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-[11px] text-muted-foreground">{tmpl.usedBy} tenants</span>
+                          </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      )}
 
       {/* Detail Drawer */}
       <DetailDrawer
