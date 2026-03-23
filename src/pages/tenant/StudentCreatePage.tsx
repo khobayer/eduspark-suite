@@ -65,6 +65,7 @@ interface GuardianEntry {
 export default function StudentCreatePage() {
   const navigate = useNavigate();
   const { labels } = useTenant();
+  const { t } = useLocale();
   const [guardians, setGuardians] = useState<GuardianEntry[]>([
     { id: 1, name: "", nameBn: "", relation: "father", phone: "", email: "", occupation: "", nid: "", address: "" },
   ]);
