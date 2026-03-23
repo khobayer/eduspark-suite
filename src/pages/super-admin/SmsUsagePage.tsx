@@ -23,13 +23,13 @@ export default function SmsUsagePage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Communication & SMS Usage" description="Monitor SMS, WhatsApp, and email usage across all tenants" />
+      <PageHeader title="Communication & SMS Usage" titleBn="যোগাযোগ ও SMS ব্যবহার" description="Monitor SMS, WhatsApp, and email usage across all tenants" descriptionBn="সকল প্রতিষ্ঠানে SMS, WhatsApp এবং ইমেইল ব্যবহার পর্যবেক্ষণ করুন" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Total Sent (This Month)" value={smsStats.totalSentThisMonth.toLocaleString()} change={`${smsStats.deliveryRate}% delivery rate`} changeType="positive" icon={Send} index={0} />
-        <StatCard title="Failed Messages" value={smsStats.totalFailed} change="Across all tenants" changeType="negative" icon={AlertTriangle} index={1} />
-        <StatCard title="Total Cost" value={`৳${smsStats.totalCost.toLocaleString()}`} icon={DollarSign} index={2} />
-        <StatCard title="Active Senders" value={smsStats.activeSenders} change={`Avg ${smsStats.avgPerTenant}/tenant`} changeType="neutral" icon={Users} index={3} />
+        <StatCard title="Total Sent (This Month)" titleBn="মোট পাঠানো (এই মাস)" value={smsStats.totalSentThisMonth.toLocaleString()} change={`${smsStats.deliveryRate}% delivery rate`} changeType="positive" icon={Send} index={0} />
+        <StatCard title="Failed Messages" titleBn="ব্যর্থ বার্তা" value={smsStats.totalFailed} change="Across all tenants" changeType="negative" icon={AlertTriangle} index={1} />
+        <StatCard title="Total Cost" titleBn="মোট খরচ" value={`৳${smsStats.totalCost.toLocaleString()}`} icon={DollarSign} index={2} />
+        <StatCard title="Active Senders" titleBn="সক্রিয় প্রেরক" value={smsStats.activeSenders} change={`Avg ${smsStats.avgPerTenant}/tenant`} changeType="neutral" icon={Users} index={3} />
       </div>
 
       {/* SMS Volume Chart */}
