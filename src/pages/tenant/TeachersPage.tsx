@@ -51,10 +51,12 @@ export default function TeachersPage() {
     setConfirmAction(null);
   };
 
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Teachers & Staff" titleBn="শিক্ষক ও কর্মচারী" description="Manage teacher profiles, designations, and department assignments">
-        <Button size="sm"><Plus className="h-4 w-4 mr-1" />Add Teacher</Button>
+      <PageHeader title="Teachers & Staff" titleBn="শিক্ষক ও কর্মচারী" description="Manage teacher profiles, designations, and department assignments" descriptionBn="শিক্ষকের প্রোফাইল, পদবী এবং বিভাগ নিয়োগ পরিচালনা করুন">
+        <Button size="sm"><Plus className="h-4 w-4 mr-1" />{t("Add Teacher", "শিক্ষক যোগ করুন")}</Button>
       </PageHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
