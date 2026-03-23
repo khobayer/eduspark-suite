@@ -61,8 +61,8 @@ export default function StudentPortalPage() {
                 </div>
               </div>
               <div className="flex gap-2 shrink-0">
-                <Button size="sm" variant="outline"><IdCard className="h-3.5 w-3.5 mr-1" />ID Card</Button>
-                <Button size="sm" variant="outline"><CreditCard className="h-3.5 w-3.5 mr-1" />Admit Card</Button>
+                <Button size="sm" variant="outline"><IdCard className="h-3.5 w-3.5 mr-1" />{t("ID Card", "আইডি কার্ড")}</Button>
+                <Button size="sm" variant="outline"><CreditCard className="h-3.5 w-3.5 mr-1" />{t("Admit Card", "প্রবেশপত্র")}</Button>
               </div>
             </div>
           </CardContent>
