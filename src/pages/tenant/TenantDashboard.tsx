@@ -2,15 +2,17 @@ import { Users, GraduationCap, CalendarCheck, Wallet, FileText, MessageSquare } 
 import { StatCard } from "@/components/dashboard/StatCard";
 import { AttendanceChart } from "@/components/dashboard/AttendanceChart";
 import { RecentActivity } from "@/components/dashboard/RecentActivity";
+import { PageHeader } from "@/components/shared/PageHeader";
 import { tenantDashboardStats } from "@/data/mock-data";
 
 export default function TenantDashboard() {
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-foreground">Dashboard / ড্যাশবোর্ড</h1>
-        <p className="text-sm text-muted-foreground mt-0.5">Dhaka Model School — ঢাকা মডেল স্কুল</p>
-      </div>
+      <PageHeader
+        title="Dashboard"
+        titleBn="ড্যাশবোর্ড"
+        description="Dhaka Model School — ঢাকা মডেল স্কুল"
+      />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         <StatCard title="Students" titleBn="শিক্ষার্থী" value={tenantDashboardStats.totalStudents.toLocaleString()} change="+15 this month" changeType="positive" icon={Users} index={0} />
