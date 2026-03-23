@@ -60,7 +60,7 @@ export default function TenantDashboard() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="lg:col-span-2">
           <Card>
             <CardHeader className="pb-3">
-              <CardTitle className="text-base font-semibold">Quick Actions / দ্রুত কার্যক্রম</CardTitle>
+              <CardTitle className="text-base font-semibold">{t("Quick Actions", "দ্রুত কার্যক্রম")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
