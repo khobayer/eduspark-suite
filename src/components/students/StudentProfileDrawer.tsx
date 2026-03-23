@@ -44,6 +44,7 @@ const resultLabels: Record<string, { label: string; color: string }> = {
 };
 
 export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerProps) {
+  const { t } = useLocale();
   if (!student) return null;
 
   const initials = student.name.split(" ").map((n) => n[0]).join("");

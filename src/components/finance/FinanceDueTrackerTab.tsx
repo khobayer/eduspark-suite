@@ -12,6 +12,7 @@ import { AlertTriangle, Phone, MessageSquare, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function FinanceDueTrackerTab() {
+  const { t } = useLocale();
   const stats = financeStatsExtended;
   const totalOverdue = overdueStudents.reduce((a, s) => a + s.totalDue, 0);
 
