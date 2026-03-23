@@ -14,6 +14,7 @@ interface Props {
 }
 
 export function ReceiptPreviewDialog({ open, onClose, invoiceId }: Props) {
+  const { t } = useLocale();
   const invoice = financeInvoices.find((i) => i.id === invoiceId);
   if (!invoice) return null;
 
