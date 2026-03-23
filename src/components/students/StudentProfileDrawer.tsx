@@ -248,7 +248,7 @@ export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerP
           {/* Enrollment History Tab */}
           <TabsContent value="history" className="space-y-4 mt-0">
             <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-              Enrollment History / ভর্তির ইতিহাস
+              {t("Enrollment History", "ভর্তির ইতিহাস")}
             </p>
             <div className="relative">
               {/* Timeline line */}

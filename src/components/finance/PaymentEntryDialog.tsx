@@ -85,7 +85,7 @@ export function PaymentEntryDialog({ open, onClose }: Props) {
           </div>
 
           <div className="space-y-1.5">
-            <Label>Note / মন্তব্য</Label>
+            <Label>{t("Note", "মন্তব্য")}</Label>
             <Textarea placeholder="Optional payment note..." rows={2} />
           </div>
 

@@ -36,7 +36,7 @@ export function ReceiptPreviewDialog({ open, onClose, invoiceId }: Props) {
           <Separator />
 
           <div className="text-center">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Payment Receipt / পেমেন্ট রসিদ</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{t("Payment Receipt", "পেমেন্ট রসিদ")}</p>
             <p className="text-sm font-mono text-muted-foreground mt-1">{invoice.receiptNo || `RCP-${invoice.id.padStart(3, "0")}`}</p>
           </div>
 
