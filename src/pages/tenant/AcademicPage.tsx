@@ -141,7 +141,7 @@ export default function AcademicPage() {
                 <Card>
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-base font-semibold">Academic Sessions / শিক্ষাবর্ষ</CardTitle>
+                      <CardTitle className="text-base font-semibold">{t("Academic Sessions", "শিক্ষাবর্ষ")}</CardTitle>
                       <Button size="sm" variant="outline"><Plus className="h-3.5 w-3.5 mr-1" />Add Session</Button>
                     </div>
                   </CardHeader>
