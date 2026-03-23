@@ -346,7 +346,7 @@ export default function StudentCreatePage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                Additional Notes / অতিরিক্ত তথ্য
+                {t("Additional Notes", "অতিরিক্ত তথ্য")}
               </CardTitle>
             </CardHeader>
             <CardContent>
