@@ -35,14 +35,14 @@ const academicItems = [
   { title: "Teachers & Staff", titleBn: "শিক্ষক", url: "/tenant/teachers", icon: GraduationCap },
   { title: "Academic", titleBn: "একাডেমিক", url: "/tenant/academic", icon: BookOpen },
   { title: "Attendance", titleBn: "উপস্থিতি", url: "/tenant/attendance", icon: CalendarCheck },
-  { title: "Exams", titleBn: "পরীক্ষা", url: "/tenant/exams", icon: FileText },
+  { title: "Exams & Results", titleBn: "পরীক্ষা ও ফলাফল", url: "/tenant/exams", icon: FileText },
 ];
 
 const managementItems = [
   { title: "Finance", titleBn: "আর্থিক", url: "/tenant/finance", icon: Wallet },
   { title: "Reports", titleBn: "রিপোর্ট", url: "/tenant/reports", icon: BarChart3 },
   { title: "Utilities", titleBn: "ইউটিলিটি", url: "/tenant/utilities", icon: Wrench },
-  { title: "Broadcast", titleBn: "সম্প্রচার", url: "/tenant/broadcast", icon: Radio },
+  { title: "Broadcast Center", titleBn: "সম্প্রচার কেন্দ্র", url: "/tenant/broadcast", icon: Radio },
   { title: "Settings", titleBn: "সেটিংস", url: "/tenant/settings", icon: Settings },
 ];
 
