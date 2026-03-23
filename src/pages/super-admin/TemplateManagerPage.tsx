@@ -2,7 +2,6 @@ import { useState } from "react";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { EmptyState } from "@/components/shared/EmptyState";
-import { FilterBar } from "@/components/shared/FilterBar";
 import { DetailDrawer } from "@/components/shared/DetailDrawer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
