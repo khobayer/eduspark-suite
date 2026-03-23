@@ -44,12 +44,11 @@ export default function UtilitiesPage() {
                         <tool.icon className="h-6 w-6" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-sm font-semibold text-foreground">{tool.name}</h3>
-                        <p className="text-xs text-muted-foreground mb-0.5">{tool.nameBn}</p>
-                        <p className="text-xs text-muted-foreground">{tool.description}</p>
+                        <h3 className="text-sm font-semibold text-foreground">{t(tool.name, tool.nameBn)}</h3>
+                        <p className="text-xs text-muted-foreground">{t(tool.description, tool.descriptionBn)}</p>
                         <div className="flex gap-2 mt-3">
-                          <Button size="sm" className="h-8 text-xs"><Printer className="h-3 w-3 mr-1" />Generate</Button>
-                          <Button size="sm" variant="outline" className="h-8 text-xs"><Download className="h-3 w-3 mr-1" />Bulk Download</Button>
+                          <Button size="sm" className="h-8 text-xs"><Printer className="h-3 w-3 mr-1" />{t("Generate", "তৈরি করুন")}</Button>
+                          <Button size="sm" variant="outline" className="h-8 text-xs"><Download className="h-3 w-3 mr-1" />{t("Bulk Download", "বাল্ক ডাউনলোড")}</Button>
                         </div>
                       </div>
                     </div>
