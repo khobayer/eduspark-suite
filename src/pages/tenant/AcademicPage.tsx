@@ -79,8 +79,8 @@ export default function AcademicPage() {
 
           <Tabs defaultValue="classes" className="space-y-4">
             <TabsList>
-              <TabsTrigger value="classes">Classes & Sections / শ্রেণি ও শাখা</TabsTrigger>
-              <TabsTrigger value="sessions">Academic Sessions / শিক্ষাবর্ষ</TabsTrigger>
+              <TabsTrigger value="classes">{t("Classes & Sections", "শ্রেণি ও শাখা")}</TabsTrigger>
+              <TabsTrigger value="sessions">{t("Academic Sessions", "শিক্ষাবর্ষ")}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="classes" className="space-y-4">
