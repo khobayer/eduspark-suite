@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface StatCardProps {
   title: string;
@@ -13,6 +14,8 @@ interface StatCardProps {
 }
 
 export function StatCard({ title, titleBn, value, change, changeType = 'neutral', icon: Icon, index = 0 }: StatCardProps) {
+  const { t } = useLocale();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -23,8 +26,7 @@ export function StatCard({ title, titleBn, value, change, changeType = 'neutral'
         <CardContent className="p-5">
           <div className="flex items-start justify-between">
             <div className="space-y-1">
-              <p className="text-sm text-muted-foreground">{title}</p>
-              {titleBn && <p className="text-[11px] text-muted-foreground/70">{titleBn}</p>}
+              <p className="text-sm text-muted-foreground">{titleBn ? t(title, titleBn) : title}</p>
               <p className="text-2xl font-bold tracking-tight text-foreground">{value}</p>
               {change && (
                 <p className={`text-xs font-medium ${

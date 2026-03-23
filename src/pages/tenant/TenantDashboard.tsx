@@ -36,13 +36,14 @@ const upcomingReminders = [
 
 export default function TenantDashboard() {
   const navigate = useNavigate();
+  const { t } = useLocale();
 
   return (
     <div className="space-y-6">
       <PageHeader
         title="Dashboard"
         titleBn="ড্যাশবোর্ড"
-        description="Dhaka Model School — ঢাকা মডেল স্কুল"
+        description={t("Dhaka Model School", "ঢাকা মডেল স্কুল")}
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
