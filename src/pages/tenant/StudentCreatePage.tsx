@@ -13,6 +13,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { useLocale } from "@/contexts/LocaleContext";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { ArrowLeft, Save, Plus, Trash2, Upload, FileText } from "lucide-react";
