@@ -104,9 +104,26 @@ export default function SmsUsagePage() {
                 ))}
               </TableBody>
             </Table>
+            {filtered.length > 10 && (
+              <div className="flex items-center justify-center px-4 py-3 border-t">
+                <p className="text-xs text-muted-foreground">Showing {Math.min(filtered.length, 10)} of {filtered.length} tenants</p>
+              </div>
+            )}
           </CardContent>
         </Card>
       </motion.div>
+
+      {filtered.length === 0 && (
+        <Card>
+          <CardContent className="p-0">
+            <EmptyState
+              icon={<MessageSquare className="h-7 w-7 text-muted-foreground" />}
+              title="No tenants found"
+              description="Try adjusting your search or filters"
+            />
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

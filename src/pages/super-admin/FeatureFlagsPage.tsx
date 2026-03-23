@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { EmptyState } from "@/components/shared/EmptyState";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
