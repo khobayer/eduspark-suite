@@ -79,11 +79,11 @@ export default function StudentPortalPage() {
 
       <Tabs defaultValue="profile" className="space-y-4">
         <TabsList className="flex-wrap">
-          <TabsTrigger value="profile">Profile / প্রোফাইল</TabsTrigger>
-          <TabsTrigger value="attendance">Attendance / উপস্থিতি</TabsTrigger>
-          <TabsTrigger value="fees">Fees / ফি</TabsTrigger>
-          <TabsTrigger value="results">Results / ফলাফল</TabsTrigger>
-          <TabsTrigger value="notices">Notices / নোটিশ</TabsTrigger>
+          <TabsTrigger value="profile"><LocaleLabel en="Profile" bn="প্রোফাইল" /></TabsTrigger>
+          <TabsTrigger value="attendance"><LocaleLabel en="Attendance" bn="উপস্থিতি" /></TabsTrigger>
+          <TabsTrigger value="fees"><LocaleLabel en="Fees" bn="ফি" /></TabsTrigger>
+          <TabsTrigger value="results"><LocaleLabel en="Results" bn="ফলাফল" /></TabsTrigger>
+          <TabsTrigger value="notices"><LocaleLabel en="Notices" bn="নোটিশ" /></TabsTrigger>
         </TabsList>
 
         {/* Profile Tab */}

@@ -61,7 +61,7 @@ export default function UtilitiesPage() {
 
         <TabsContent value="notices" className="space-y-4">
           <div className="flex justify-end">
-            <Button size="sm"><Plus className="h-4 w-4 mr-1" />Create Notice</Button>
+            <Button size="sm"><Plus className="h-4 w-4 mr-1" />{t("Create Notice", "নোটিশ তৈরি")}</Button>
           </div>
           {notices.map((notice, i) => (
             <motion.div key={notice.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}>

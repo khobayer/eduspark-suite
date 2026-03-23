@@ -109,25 +109,27 @@ export default function BroadcastPage() {
     );
   };
 
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Broadcast Center" titleBn="সম্প্রচার কেন্দ্র" description="Send SMS, WhatsApp, and email notifications to parents and staff">
-        <Button size="sm"><Plus className="h-4 w-4 mr-1" />New Broadcast</Button>
+      <PageHeader title="Broadcast Center" titleBn="সম্প্রচার কেন্দ্র" description="Send SMS, WhatsApp, and email notifications to parents and staff" descriptionBn="অভিভাবক ও কর্মচারীদের কাছে SMS, WhatsApp এবং ইমেইল বিজ্ঞপ্তি পাঠান">
+        <Button size="sm"><Plus className="h-4 w-4 mr-1" />{t("New Broadcast", "নতুন সম্প্রচার")}</Button>
       </PageHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-        <StatCard title="Messages Sent" titleBn="পাঠানো" value={sent} icon={Send} index={0} />
-        <StatCard title="Total Delivered" titleBn="ডেলিভার্ড" value={totalDelivered.toLocaleString()} change={totalRecipients > 0 ? `${Math.round(totalDelivered / totalRecipients * 100)}% rate` : ''} changeType="positive" icon={CheckCircle2} index={1} />
-        <StatCard title="Scheduled" value={broadcastMessages.filter(m => m.status === 'scheduled').length} icon={Radio} index={2} />
-        <StatCard title="Failed" value={broadcastMessages.filter(m => m.status === 'failed').length} icon={AlertTriangle} index={3} />
+        <StatCard title="Messages Sent" titleBn="পাঠানো বার্তা" value={sent} icon={Send} index={0} />
+        <StatCard title="Total Delivered" titleBn="মোট ডেলিভার্ড" value={totalDelivered.toLocaleString()} change={totalRecipients > 0 ? `${Math.round(totalDelivered / totalRecipients * 100)}% rate` : ''} changeType="positive" icon={CheckCircle2} index={1} />
+        <StatCard title="Scheduled" titleBn="নির্ধারিত" value={broadcastMessages.filter(m => m.status === 'scheduled').length} icon={Radio} index={2} />
+        <StatCard title="Failed" titleBn="ব্যর্থ" value={broadcastMessages.filter(m => m.status === 'failed').length} icon={AlertTriangle} index={3} />
       </div>
 
       <Tabs defaultValue="all" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="all">All Messages</TabsTrigger>
-          <TabsTrigger value="sent">Sent</TabsTrigger>
-          <TabsTrigger value="scheduled">Scheduled</TabsTrigger>
-          <TabsTrigger value="draft">Drafts</TabsTrigger>
+          <TabsTrigger value="all"><LocaleLabel en="All Messages" bn="সব বার্তা" /></TabsTrigger>
+          <TabsTrigger value="sent"><LocaleLabel en="Sent" bn="পাঠানো" /></TabsTrigger>
+          <TabsTrigger value="scheduled"><LocaleLabel en="Scheduled" bn="নির্ধারিত" /></TabsTrigger>
+          <TabsTrigger value="draft"><LocaleLabel en="Drafts" bn="খসড়া" /></TabsTrigger>
         </TabsList>
 
         {['all', 'sent', 'scheduled', 'draft'].map(tab => (

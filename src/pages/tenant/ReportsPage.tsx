@@ -11,6 +11,7 @@ import {
 import { BarChart3, Users, Wallet, FileText, CalendarCheck, Download, Printer, Filter, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface ReportItem {
   name: string;

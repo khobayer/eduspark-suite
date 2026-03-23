@@ -21,6 +21,7 @@ import { teachers, type Teacher } from "@/data/tenant-data";
 import { GraduationCap, Users, UserCheck, Clock, Plus, MoreHorizontal, Eye, Edit, Trash2, UserX, IdCard } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const PAGE_SIZE = 10;
 
