@@ -313,7 +313,7 @@ export default function StudentCreatePage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                Documents / নথিপত্র
+                {t("Documents", "নথিপত্র")}
               </CardTitle>
               <CardDescription>Upload required documents for enrollment</CardDescription>
             </CardHeader>
