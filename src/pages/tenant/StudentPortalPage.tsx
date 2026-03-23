@@ -34,10 +34,11 @@ export default function StudentPortalPage() {
   const totalFees = studentFees.reduce((a, f) => a + f.amount, 0);
   const totalPaid = studentFees.reduce((a, f) => a + f.paid, 0);
   const totalDue = totalFees - totalPaid;
+  const { t } = useLocale();
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Student Portal" titleBn="ছাত্র পোর্টাল" description="Your academic dashboard, results, fees, and notices" />
+      <PageHeader title="Student Portal" titleBn="ছাত্র পোর্টাল" description="Your academic dashboard, results, fees, and notices" descriptionBn="আপনার একাডেমিক ড্যাশবোর্ড, ফলাফল, ফি এবং নোটিশ" />
 
       {/* Profile Summary */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
