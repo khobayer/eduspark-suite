@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { CreditCard } from "lucide-react";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface Props {
   open: boolean;
