@@ -38,7 +38,7 @@ export default function AuditLogsPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Audit Logs" description="Track all system activities, security events, and administrative actions">
+      <PageHeader title="Audit Logs" titleBn="অডিট লগ" description="Track all system activities, security events, and administrative actions" descriptionBn="সকল সিস্টেম কার্যকলাপ, নিরাপত্তা ইভেন্ট এবং প্রশাসনিক পদক্ষেপ ট্র্যাক করুন">
         <Button size="sm" variant="outline"><Download className="h-4 w-4 mr-1" />Export Logs</Button>
       </PageHeader>
 

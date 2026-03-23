@@ -54,7 +54,7 @@ export default function AdminUsersPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Platform Users" description="Manage admin users and their access levels">
+      <PageHeader title="Platform Users" titleBn="প্ল্যাটফর্ম ব্যবহারকারী" description="Manage admin users and their access levels" descriptionBn="অ্যাডমিন ব্যবহারকারী এবং তাদের অ্যাক্সেস লেভেল পরিচালনা করুন">
         <Button size="sm"><Plus className="h-4 w-4 mr-1" />Invite User</Button>
       </PageHeader>
 

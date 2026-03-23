@@ -48,7 +48,7 @@ export default function SupportTicketsPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Support Tickets" description="Manage tenant support requests and track resolution">
+      <PageHeader title="Support Tickets" titleBn="সাপোর্ট টিকেট" description="Manage tenant support requests and track resolution" descriptionBn="প্রতিষ্ঠানের সাপোর্ট অনুরোধ পরিচালনা এবং সমাধান ট্র্যাক করুন">
         <Button size="sm"><Plus className="h-4 w-4 mr-1" />Create Ticket</Button>
       </PageHeader>
 

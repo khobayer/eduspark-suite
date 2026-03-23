@@ -47,7 +47,7 @@ export default function TenantListPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Tenants" titleBn="প্রতিষ্ঠানসমূহ" description="Manage all registered institutions">
+      <PageHeader title="Tenants" titleBn="প্রতিষ্ঠানসমূহ" description="Manage all registered institutions" descriptionBn="সকল নিবন্ধিত প্রতিষ্ঠান পরিচালনা করুন">
         <Button size="sm">
           <Plus className="h-4 w-4 mr-1" />
           Add Tenant

@@ -40,20 +40,24 @@ const alerts = [
 ];
 
 export default function SuperAdminDashboard() {
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
       <PageHeader
         title="Platform Overview"
+        titleBn="প্ল্যাটফর্ম ওভারভিউ"
         description="Monitor your SaaS platform health, tenant activity, and revenue"
+        descriptionBn="আপনার SaaS প্ল্যাটফর্মের স্বাস্থ্য, প্রতিষ্ঠান কার্যকলাপ এবং রাজস্ব পর্যবেক্ষণ করুন"
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        <StatCard title="Total Tenants" value={superAdminStats.totalTenants} change="+8 this month" changeType="positive" icon={Building2} index={0} />
-        <StatCard title="Total Students" value={superAdminStats.totalStudents.toLocaleString()} change="+2.1k this month" changeType="positive" icon={Users} index={1} />
-        <StatCard title="MRR" value={`৳${(billingStats.thisMonthRevenue / 1000).toFixed(0)}k`} change={`+${billingStats.mrrGrowth}% growth`} changeType="positive" icon={CreditCard} index={2} />
-        <StatCard title="Active Subs" value={billingStats.activeSubscriptions} change={`${billingStats.churnRate}% churn`} changeType="neutral" icon={TrendingUp} index={3} />
-        <StatCard title="Trial Accounts" value={superAdminStats.trialAccounts} change="Converting well" changeType="positive" icon={PlayCircle} index={4} />
-        <StatCard title="Avg Revenue" value={`৳${(billingStats.avgRevenuePerTenant / 1000).toFixed(1)}k`} change="Per tenant/mo" changeType="neutral" icon={BarChart3} index={5} />
+        <StatCard title="Total Tenants" titleBn="মোট প্রতিষ্ঠান" value={superAdminStats.totalTenants} change="+8 this month" changeType="positive" icon={Building2} index={0} />
+        <StatCard title="Total Students" titleBn="মোট শিক্ষার্থী" value={superAdminStats.totalStudents.toLocaleString()} change="+2.1k this month" changeType="positive" icon={Users} index={1} />
+        <StatCard title="MRR" titleBn="মাসিক রাজস্ব" value={`৳${(billingStats.thisMonthRevenue / 1000).toFixed(0)}k`} change={`+${billingStats.mrrGrowth}% growth`} changeType="positive" icon={CreditCard} index={2} />
+        <StatCard title="Active Subs" titleBn="সক্রিয় সাবস্ক্রিপশন" value={billingStats.activeSubscriptions} change={`${billingStats.churnRate}% churn`} changeType="neutral" icon={TrendingUp} index={3} />
+        <StatCard title="Trial Accounts" titleBn="ট্রায়াল অ্যাকাউন্ট" value={superAdminStats.trialAccounts} change="Converting well" changeType="positive" icon={PlayCircle} index={4} />
+        <StatCard title="Avg Revenue" titleBn="গড় রাজস্ব" value={`৳${(billingStats.avgRevenuePerTenant / 1000).toFixed(1)}k`} change="Per tenant/mo" changeType="neutral" icon={BarChart3} index={5} />
       </div>
 
       {/* Alerts Banner */}

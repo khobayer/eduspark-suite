@@ -45,7 +45,7 @@ export default function SystemSettingsPage() {
 
   return (
     <div className="space-y-6 max-w-4xl">
-      <PageHeader title="System Settings" description="Configure platform-wide settings and preferences">
+      <PageHeader title="System Settings" titleBn="সিস্টেম সেটিংস" description="Configure platform-wide settings and preferences" descriptionBn="প্ল্যাটফর্ম-ব্যাপী সেটিংস এবং পছন্দ কনফিগার করুন">
         <Button size="sm" onClick={handleSave}><Save className="h-4 w-4 mr-1" />Save Changes</Button>
       </PageHeader>
 
