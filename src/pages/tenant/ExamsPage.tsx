@@ -174,7 +174,7 @@ export default function ExamsPage() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <div>
-                  <CardTitle className="text-base font-semibold">Marks Entry / নম্বর এন্ট্রি</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Marks Entry", "নম্বর এন্ট্রি")}</CardTitle>
                   <p className="text-xs text-muted-foreground mt-0.5">Enter marks for each student per subject</p>
                 </div>
                 <div className="flex items-center gap-2">
