@@ -96,7 +96,7 @@ export default function TeachersPage() {
                       </div>
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">{t.phone}</TableCell>
-                    <TableCell><StatusBadge status={t.status === 'on_leave' ? 'late' : t.status} /></TableCell>
+                    <TableCell><StatusBadge status={t.status} /></TableCell>
                     <TableCell>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
