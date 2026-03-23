@@ -183,8 +183,8 @@ export default function AcademicPage() {
 
           <Tabs defaultValue="courses" className="space-y-4">
             <TabsList>
-              <TabsTrigger value="courses">Courses / কোর্স</TabsTrigger>
-              <TabsTrigger value="batches">Batches & Schedule / ব্যাচ</TabsTrigger>
+              <TabsTrigger value="courses">{t("Courses", "কোর্স")}</TabsTrigger>
+              <TabsTrigger value="batches">{t("Batches & Schedule", "ব্যাচ")}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="courses" className="space-y-4">
