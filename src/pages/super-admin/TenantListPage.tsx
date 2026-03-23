@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import { EmptyState } from "@/components/shared/EmptyState";
+import { ConfirmDialog } from "@/components/shared/ConfirmDialog";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,17 +11,19 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 import { tenants } from "@/data/mock-data";
-import { Plus, Eye, MoreHorizontal, Building2 } from "lucide-react";
+import { Plus, Eye, MoreHorizontal, Building2, Edit, Ban, LogIn, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
 import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
+  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { toast } from "sonner";
 
 const PAGE_SIZE = 10;
 
 export default function TenantListPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [confirmAction, setConfirmAction] = useState<{ type: string; tenant: string } | null>(null);
 
   const filtered = tenants.filter(
     (t) =>
@@ -30,6 +33,17 @@ export default function TenantListPage() {
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+  const handleConfirm = () => {
+    if (confirmAction?.type === 'suspend') {
+      toast.success(`${confirmAction.tenant} has been suspended.`);
+    } else if (confirmAction?.type === 'delete') {
+      toast.success(`${confirmAction.tenant} has been deleted.`);
+    } else if (confirmAction?.type === 'impersonate') {
+      toast.info(`Impersonating ${confirmAction.tenant}...`);
+    }
+    setConfirmAction(null);
+  };
 
   return (
     <div className="space-y-6">
@@ -105,8 +119,23 @@ export default function TenantListPage() {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
                               <DropdownMenuItem><Eye className="h-3.5 w-3.5 mr-2" />View Details</DropdownMenuItem>
-                              <DropdownMenuItem>Edit</DropdownMenuItem>
-                              <DropdownMenuItem className="text-destructive">Suspend</DropdownMenuItem>
+                              <DropdownMenuItem><Edit className="h-3.5 w-3.5 mr-2" />Edit</DropdownMenuItem>
+                              <DropdownMenuItem onClick={() => setConfirmAction({ type: 'impersonate', tenant: t.name })}>
+                                <LogIn className="h-3.5 w-3.5 mr-2" />Impersonate
+                              </DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem
+                                className="text-warning"
+                                onClick={() => setConfirmAction({ type: 'suspend', tenant: t.name })}
+                              >
+                                <Ban className="h-3.5 w-3.5 mr-2" />Suspend
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className="text-destructive"
+                                onClick={() => setConfirmAction({ type: 'delete', tenant: t.name })}
+                              >
+                                <Trash2 className="h-3.5 w-3.5 mr-2" />Delete
+                              </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </TableCell>
@@ -131,6 +160,26 @@ export default function TenantListPage() {
           </CardContent>
         </Card>
       </motion.div>
+
+      <ConfirmDialog
+        open={!!confirmAction}
+        onOpenChange={() => setConfirmAction(null)}
+        title={
+          confirmAction?.type === 'suspend' ? 'Suspend Tenant' :
+          confirmAction?.type === 'delete' ? 'Delete Tenant' :
+          'Impersonate Tenant'
+        }
+        description={
+          confirmAction?.type === 'suspend'
+            ? `Are you sure you want to suspend "${confirmAction?.tenant}"? They will lose access to the platform.`
+            : confirmAction?.type === 'delete'
+            ? `This action cannot be undone. All data for "${confirmAction?.tenant}" will be permanently deleted.`
+            : `You will be logged in as "${confirmAction?.tenant}". Your admin session will be preserved.`
+        }
+        confirmLabel={confirmAction?.type === 'suspend' ? 'Suspend' : confirmAction?.type === 'delete' ? 'Delete' : 'Impersonate'}
+        variant={confirmAction?.type === 'delete' || confirmAction?.type === 'suspend' ? 'destructive' : 'default'}
+        onConfirm={handleConfirm}
+      />
     </div>
   );
 }
