@@ -75,10 +75,12 @@ export default function AttendancePage() {
 
   const staffPresent = staffAttendance.filter(s => s.status === 'present').length;
 
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Attendance" titleBn="উপস্থিতি" description="Daily attendance marking and tracking for students and staff">
-        <Button size="sm" onClick={() => toast.success("Attendance saved!")}><Save className="h-4 w-4 mr-1" />Save Attendance</Button>
+      <PageHeader title="Attendance" titleBn="উপস্থিতি" description="Daily attendance marking and tracking for students and staff" descriptionBn="শিক্ষার্থী ও কর্মচারীদের দৈনিক উপস্থিতি চিহ্নিতকরণ ও ট্র্যাকিং">
+        <Button size="sm" onClick={() => toast.success(t("Attendance saved!", "উপস্থিতি সংরক্ষিত!"))}><Save className="h-4 w-4 mr-1" />{t("Save Attendance", "উপস্থিতি সংরক্ষণ")}</Button>
       </PageHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
