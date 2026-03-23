@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { financeInvoices } from "@/data/finance-data";
 import { Printer, Download, CheckCircle } from "lucide-react";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface Props {
   open: boolean;
