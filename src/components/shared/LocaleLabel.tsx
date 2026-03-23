@@ -27,9 +27,9 @@ export function LocaleLabel({ en, bn, className, as: Tag = "span" }: LocaleLabel
       return <Tag className={className}>{bn}</Tag>;
     case "both":
       return (
-        <Tag className={className}>
+        <Tag className={`${className || ""} whitespace-nowrap`}>
           {en}
-          <span className="text-muted-foreground font-normal ml-1 text-[0.85em] opacity-70">/ {bn}</span>
+          <span className="text-muted-foreground font-normal ml-1 text-[0.8em] opacity-60">/ {bn}</span>
         </Tag>
       );
   }
