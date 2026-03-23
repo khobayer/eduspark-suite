@@ -17,6 +17,8 @@ import { FinanceAnalyticsTab } from "@/components/finance/FinanceAnalyticsTab";
 import { FinanceDueTrackerTab } from "@/components/finance/FinanceDueTrackerTab";
 import { PaymentEntryDialog } from "@/components/finance/PaymentEntryDialog";
 import { ReceiptPreviewDialog } from "@/components/finance/ReceiptPreviewDialog";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 export default function FinancePage() {
   const [paymentOpen, setPaymentOpen] = useState(false);
@@ -26,14 +28,16 @@ export default function FinancePage() {
 
   const collectionGrowth = (((stats.thisMonthCollection - stats.lastMonthCollection) / stats.lastMonthCollection) * 100).toFixed(1);
 
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Finance" titleBn="আর্থিক" description="Fee management, invoices, payments, and expense tracking">
+      <PageHeader title="Finance" titleBn="আর্থিক" description="Fee management, invoices, payments, and expense tracking" descriptionBn="ফি ব্যবস্থাপনা, চালান, পেমেন্ট এবং ব্যয় ট্র্যাকিং">
         <Button size="sm" onClick={() => setPaymentOpen(true)}>
-          <Plus className="h-4 w-4 mr-1" />Record Payment
+          <Plus className="h-4 w-4 mr-1" />{t("Record Payment", "পেমেন্ট রেকর্ড")}
         </Button>
         <Button size="sm" variant="outline" onClick={() => { setReceiptInvoiceId('1'); setReceiptOpen(true); }}>
-          <Receipt className="h-4 w-4 mr-1" />View Receipt
+          <Receipt className="h-4 w-4 mr-1" />{t("View Receipt", "রসিদ দেখুন")}
         </Button>
       </PageHeader>
 
@@ -47,12 +51,12 @@ export default function FinancePage() {
       <Tabs defaultValue="invoices" className="space-y-4">
         <div className="overflow-x-auto">
           <TabsList className="inline-flex w-auto">
-            <TabsTrigger value="invoices" className="text-xs">Invoices</TabsTrigger>
-            <TabsTrigger value="due-tracker" className="text-xs">Due Tracker</TabsTrigger>
-            <TabsTrigger value="fee-categories" className="text-xs">Fee Categories</TabsTrigger>
-            <TabsTrigger value="fee-structure" className="text-xs">Fee Structure</TabsTrigger>
-            <TabsTrigger value="expenses" className="text-xs">Expenses</TabsTrigger>
-            <TabsTrigger value="analytics" className="text-xs">Analytics</TabsTrigger>
+            <TabsTrigger value="invoices" className="text-xs"><LocaleLabel en="Invoices" bn="চালান" /></TabsTrigger>
+            <TabsTrigger value="due-tracker" className="text-xs"><LocaleLabel en="Due Tracker" bn="বকেয়া ট্র্যাকার" /></TabsTrigger>
+            <TabsTrigger value="fee-categories" className="text-xs"><LocaleLabel en="Fee Categories" bn="ফি বিভাগ" /></TabsTrigger>
+            <TabsTrigger value="fee-structure" className="text-xs"><LocaleLabel en="Fee Structure" bn="ফি কাঠামো" /></TabsTrigger>
+            <TabsTrigger value="expenses" className="text-xs"><LocaleLabel en="Expenses" bn="ব্যয়" /></TabsTrigger>
+            <TabsTrigger value="analytics" className="text-xs"><LocaleLabel en="Analytics" bn="বিশ্লেষণ" /></TabsTrigger>
           </TabsList>
         </div>
 

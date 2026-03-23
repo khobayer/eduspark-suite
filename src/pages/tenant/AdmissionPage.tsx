@@ -30,6 +30,8 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend,
 } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const stageColors: Record<string, string> = {
   inquiry: 'bg-muted text-muted-foreground border-border',
@@ -54,24 +56,26 @@ export default function AdmissionPage() {
       a.applyingFor.toLowerCase().includes(search.toLowerCase())
   );
 
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Admission" titleBn="ভর্তি" description="Manage admission applications, inquiries, and enrollment flow">
-        <Button size="sm"><Plus className="h-4 w-4 mr-1" />New Application</Button>
+      <PageHeader title="Admission" titleBn="ভর্তি" description="Manage admission applications, inquiries, and enrollment flow" descriptionBn="ভর্তি আবেদন, জিজ্ঞাসা এবং তালিকাভুক্তি প্রবাহ পরিচালনা করুন">
+        <Button size="sm"><Plus className="h-4 w-4 mr-1" />{t("New Application", "নতুন আবেদন")}</Button>
       </PageHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard title="Total Applications" titleBn="মোট আবেদন" value={admissionStats.totalApplications} icon={UserPlus} index={0} />
-        <StatCard title="In Progress" titleBn="চলমান" value={admissionStats.inProgress} change="Under review" changeType="neutral" icon={Clock} index={1} />
-        <StatCard title="Enrolled" titleBn="ভর্তি হয়েছে" value={admissionStats.enrolled} change={`${admissionStats.conversionRate}% conversion`} changeType="positive" icon={CheckCircle2} index={2} />
+        <StatCard title="In Progress" titleBn="চলমান" value={admissionStats.inProgress} change={t("Under review", "পর্যালোচনাধীন")} changeType="neutral" icon={Clock} index={1} />
+        <StatCard title="Enrolled" titleBn="ভর্তি হয়েছে" value={admissionStats.enrolled} change={`${admissionStats.conversionRate}% ${t("conversion", "রূপান্তর")}`} changeType="positive" icon={CheckCircle2} index={2} />
         <StatCard title="Avg Processing" titleBn="গড় সময়" value={`${admissionStats.avgProcessingDays}d`} icon={TrendingUp} index={3} />
       </div>
 
       <Tabs defaultValue="applications" className="space-y-4">
         <TabsList className="flex-wrap">
-          <TabsTrigger value="applications">Applications / আবেদন</TabsTrigger>
-          <TabsTrigger value="funnel">Funnel / ফানেল</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics / বিশ্লেষণ</TabsTrigger>
+          <TabsTrigger value="applications"><LocaleLabel en="Applications" bn="আবেদন" /></TabsTrigger>
+          <TabsTrigger value="funnel"><LocaleLabel en="Funnel" bn="ফানেল" /></TabsTrigger>
+          <TabsTrigger value="analytics"><LocaleLabel en="Analytics" bn="বিশ্লেষণ" /></TabsTrigger>
         </TabsList>
 
         {/* Applications Tab */}

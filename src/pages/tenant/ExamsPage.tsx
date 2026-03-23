@@ -30,6 +30,8 @@ import { toast } from "sonner";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const typeLabels: Record<string, string> = {
   term: 'Term Exam', mid_term: 'Mid-Term', final: 'Final Exam', class_test: 'Class Test', mock: 'Mock Test',
@@ -72,11 +74,13 @@ export default function ExamsPage() {
   const published = exams.filter(e => e.status === 'published').length;
   const completed = exams.filter(e => e.status === 'completed').length;
 
+  const { t } = useLocale();
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Exams & Results" titleBn="পরীক্ষা ও ফলাফল" description="Exam setup, marks entry, tabulation, report cards, and result publishing">
-        <Button size="sm" variant="outline"><Download className="h-4 w-4 mr-1" />Export</Button>
-        <Button size="sm"><Plus className="h-4 w-4 mr-1" />Create Exam</Button>
+      <PageHeader title="Exams & Results" titleBn="পরীক্ষা ও ফলাফল" description="Exam setup, marks entry, tabulation, report cards, and result publishing" descriptionBn="পরীক্ষা সেটআপ, নম্বর এন্ট্রি, ট্যাবুলেশন, রিপোর্ট কার্ড এবং ফলাফল প্রকাশ">
+        <Button size="sm" variant="outline"><Download className="h-4 w-4 mr-1" />{t("Export", "রপ্তানি")}</Button>
+        <Button size="sm"><Plus className="h-4 w-4 mr-1" />{t("Create Exam", "পরীক্ষা তৈরি")}</Button>
       </PageHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
