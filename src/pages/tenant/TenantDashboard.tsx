@@ -10,6 +10,7 @@ import { tenantDashboardStats } from "@/data/mock-data";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const financeChartData = [
   { month: 'Jan', collection: 220, expense: 150 },
