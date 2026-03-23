@@ -110,58 +110,70 @@ export default function FeatureFlagsPage() {
       />
 
       {/* Feature Flag Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {filtered.map((flag, i) => {
-          const cat = categoryConfig[flag.category];
-          const st = statusConfig[flag.status];
-          return (
-            <motion.div key={flag.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}>
-              <Card className="border hover:shadow-sm transition-shadow">
-                <CardContent className="p-5">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-sm font-semibold text-foreground">{flag.name}</h3>
-                        <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${st.color}`}>
-                          {st.label}
-                        </span>
+      {filtered.length === 0 ? (
+        <Card>
+          <CardContent className="p-0">
+            <EmptyState
+              icon={<ToggleRight className="h-7 w-7 text-muted-foreground" />}
+              title="No flags found"
+              description="Try adjusting your search or filters"
+            />
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {filtered.map((flag, i) => {
+            const cat = categoryConfig[flag.category];
+            const st = statusConfig[flag.status];
+            return (
+              <motion.div key={flag.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}>
+                <Card className="border hover:shadow-sm transition-shadow">
+                  <CardContent className="p-5">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-sm font-semibold text-foreground">{flag.name}</h3>
+                          <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${st.color}`}>
+                            {st.label}
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-2">{flag.description}</p>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${cat.color}`}>
+                            {cat.label}
+                          </span>
+                          <code className="text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono text-muted-foreground">{flag.key}</code>
+                          {flag.isGlobal && (
+                            <Badge variant="secondary" className="text-[10px] h-5">Global</Badge>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-3 mt-3 text-[11px] text-muted-foreground">
+                          {flag.enabledForPlans.length > 0 && (
+                            <span>Plans: {flag.enabledForPlans.join(', ')}</span>
+                          )}
+                          {flag.enabledForTenants.length > 0 && (
+                            <span>+{flag.enabledForTenants.length} specific tenants</span>
+                          )}
+                          <span>Updated: {flag.lastUpdated}</span>
+                        </div>
                       </div>
-                      <p className="text-xs text-muted-foreground mb-2">{flag.description}</p>
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${cat.color}`}>
-                          {cat.label}
-                        </span>
-                        <code className="text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono text-muted-foreground">{flag.key}</code>
-                        {flag.isGlobal && (
-                          <Badge variant="secondary" className="text-[10px] h-5">Global</Badge>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-3 mt-3 text-[11px] text-muted-foreground">
-                        {flag.enabledForPlans.length > 0 && (
-                          <span>Plans: {flag.enabledForPlans.join(', ')}</span>
-                        )}
-                        {flag.enabledForTenants.length > 0 && (
-                          <span>+{flag.enabledForTenants.length} specific tenants</span>
-                        )}
-                        <span>Updated: {flag.lastUpdated}</span>
+                      <div className="flex flex-col items-end gap-2 shrink-0">
+                        <Switch
+                          checked={flag.status === 'enabled' || flag.status === 'beta'}
+                          onCheckedChange={() => toggleFlag(flag.id)}
+                        />
+                        <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setSelected(flag)}>
+                          <Eye className="h-3.5 w-3.5" />
+                        </Button>
                       </div>
                     </div>
-                    <div className="flex flex-col items-end gap-2 shrink-0">
-                      <Switch
-                        checked={flag.status === 'enabled' || flag.status === 'beta'}
-                        onCheckedChange={() => toggleFlag(flag.id)}
-                      />
-                      <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setSelected(flag)}>
-                        <Eye className="h-3.5 w-3.5" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          );
-        })}
-      </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Detail Drawer */}
       <DetailDrawer
