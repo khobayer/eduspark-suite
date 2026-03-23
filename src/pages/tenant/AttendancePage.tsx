@@ -93,10 +93,10 @@ export default function AttendancePage() {
 
       <Tabs defaultValue="students" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="students">Student Attendance / শিক্ষার্থী</TabsTrigger>
-          <TabsTrigger value="staff">Staff Attendance / কর্মচারী</TabsTrigger>
-          <TabsTrigger value="absent">Absent Summary / অনুপস্থিত</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics / বিশ্লেষণ</TabsTrigger>
+          <TabsTrigger value="students">{t("Student Attendance", "শিক্ষার্থী")}</TabsTrigger>
+          <TabsTrigger value="staff">{t("Staff Attendance", "কর্মচারী")}</TabsTrigger>
+          <TabsTrigger value="absent">{t("Absent Summary", "অনুপস্থিত")}</TabsTrigger>
+          <TabsTrigger value="analytics">{t("Analytics", "বিশ্লেষণ")}</TabsTrigger>
         </TabsList>
 
         {/* Student Attendance */}
