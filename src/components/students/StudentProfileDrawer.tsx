@@ -15,6 +15,7 @@ import {
   FileText, Upload, Download, Shield, Clock, ArrowUpRight, ArrowDownRight,
   Printer, Edit, GraduationCap,
 } from "lucide-react";
+import { useLocale } from "@/contexts/LocaleContext";
 
 interface StudentProfileDrawerProps {
   student: StudentFull | null;
