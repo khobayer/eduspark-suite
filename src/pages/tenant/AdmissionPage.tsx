@@ -30,6 +30,8 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend,
 } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const stageColors: Record<string, string> = {
   inquiry: 'bg-muted text-muted-foreground border-border',
