@@ -242,7 +242,7 @@ export default function ExamsPage() {
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-base font-semibold">Tabulation Sheet / ফলাফল তালিকা</CardTitle>
+                    <CardTitle className="text-base font-semibold">{t("Tabulation Sheet", "ফলাফল তালিকা")}</CardTitle>
                     <p className="text-xs text-muted-foreground mt-0.5">SSC Mock Test - Class 10A · Session 2025 · Total Marks: 500</p>
                   </div>
                   <div className="flex gap-2">
