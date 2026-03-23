@@ -111,7 +111,7 @@ export default function TenantDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-base font-semibold">Income vs Expense / আয় ও ব্যয়</CardTitle>
+                <CardTitle className="text-base font-semibold">{t("Income vs Expense", "আয় ও ব্যয়")}</CardTitle>
                 <Button variant="ghost" size="sm" className="text-xs" onClick={() => navigate('/tenant/finance')}>
                   Details <ArrowRight className="h-3 w-3 ml-1" />
                 </Button>
