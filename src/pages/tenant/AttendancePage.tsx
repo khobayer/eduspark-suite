@@ -221,7 +221,7 @@ export default function AttendancePage() {
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-base font-semibold">Chronically Absent Students / দীর্ঘ অনুপস্থিত</CardTitle>
+                    <CardTitle className="text-base font-semibold">{t("Chronically Absent Students", "দীর্ঘ অনুপস্থিত")}</CardTitle>
                     <p className="text-xs text-muted-foreground mt-0.5">Students absent 5+ days this month</p>
                   </div>
                   <Badge variant="destructive" className="text-xs">{absentStudents.length} students</Badge>
