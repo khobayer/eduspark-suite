@@ -307,7 +307,7 @@ export default function ExamsPage() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-base font-semibold">Merit List / মেধা তালিকা</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Merit List", "মেধা তালিকা")}</CardTitle>
                   <p className="text-xs text-muted-foreground mt-0.5">Top performers ranked by GPA</p>
                 </div>
                 <Button size="sm" variant="outline"><Printer className="h-3.5 w-3.5 mr-1" />Print Merit List</Button>
