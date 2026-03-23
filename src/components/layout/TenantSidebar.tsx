@@ -14,6 +14,7 @@ import {
   User,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 import {
   Sidebar,
   SidebarContent,
@@ -26,29 +27,31 @@ import {
   SidebarHeader,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const academicItems = [
-  { title: "Dashboard", titleBn: "ড্যাশবোর্ড", url: "/tenant", icon: LayoutDashboard, end: true },
-  { title: "Admission", titleBn: "ভর্তি", url: "/tenant/admission", icon: UserPlus },
-  { title: "Students", titleBn: "শিক্ষার্থী", url: "/tenant/students", icon: Users },
-  { title: "Student Portal", titleBn: "ছাত্র পোর্টাল", url: "/tenant/student-portal", icon: User },
-  { title: "Teachers & Staff", titleBn: "শিক্ষক", url: "/tenant/teachers", icon: GraduationCap },
-  { title: "Academic", titleBn: "একাডেমিক", url: "/tenant/academic", icon: BookOpen },
-  { title: "Attendance", titleBn: "উপস্থিতি", url: "/tenant/attendance", icon: CalendarCheck },
-  { title: "Exams & Results", titleBn: "পরীক্ষা ও ফলাফল", url: "/tenant/exams", icon: FileText },
+  { en: "Dashboard", bn: "ড্যাশবোর্ড", url: "/tenant", icon: LayoutDashboard, end: true },
+  { en: "Admission", bn: "ভর্তি", url: "/tenant/admission", icon: UserPlus },
+  { en: "Students", bn: "শিক্ষার্থী", url: "/tenant/students", icon: Users },
+  { en: "Student Portal", bn: "ছাত্র পোর্টাল", url: "/tenant/student-portal", icon: User },
+  { en: "Teachers & Staff", bn: "শিক্ষক ও কর্মচারী", url: "/tenant/teachers", icon: GraduationCap },
+  { en: "Academic", bn: "একাডেমিক", url: "/tenant/academic", icon: BookOpen },
+  { en: "Attendance", bn: "উপস্থিতি", url: "/tenant/attendance", icon: CalendarCheck },
+  { en: "Exams & Results", bn: "পরীক্ষা ও ফলাফল", url: "/tenant/exams", icon: FileText },
 ];
 
 const managementItems = [
-  { title: "Finance", titleBn: "আর্থিক", url: "/tenant/finance", icon: Wallet },
-  { title: "Reports", titleBn: "রিপোর্ট", url: "/tenant/reports", icon: BarChart3 },
-  { title: "Utilities", titleBn: "ইউটিলিটি", url: "/tenant/utilities", icon: Wrench },
-  { title: "Broadcast Center", titleBn: "সম্প্রচার কেন্দ্র", url: "/tenant/broadcast", icon: Radio },
-  { title: "Settings", titleBn: "সেটিংস", url: "/tenant/settings", icon: Settings },
+  { en: "Finance", bn: "আর্থিক", url: "/tenant/finance", icon: Wallet },
+  { en: "Reports", bn: "রিপোর্ট", url: "/tenant/reports", icon: BarChart3 },
+  { en: "Utilities", bn: "ইউটিলিটি", url: "/tenant/utilities", icon: Wrench },
+  { en: "Broadcast Center", bn: "সম্প্রচার কেন্দ্র", url: "/tenant/broadcast", icon: Radio },
+  { en: "Settings", bn: "সেটিংস", url: "/tenant/settings", icon: Settings },
 ];
 
 export function TenantSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
+  const { t } = useLocale();
 
   return (
     <Sidebar collapsible="icon">
@@ -59,8 +62,12 @@ export function TenantSidebar() {
           </div>
           {!collapsed && (
             <div className="flex flex-col">
-              <span className="text-sidebar-primary-foreground font-semibold text-sm leading-tight">Dhaka Model School</span>
-              <span className="text-sidebar-foreground text-[10px] opacity-60">ঢাকা মডেল স্কুল</span>
+              <span className="text-sidebar-primary-foreground font-semibold text-sm leading-tight">
+                {t("Dhaka Model School", "ঢাকা মডেল স্কুল")}
+              </span>
+              <span className="text-sidebar-foreground text-[10px] opacity-60">
+                {t("Institute Panel", "প্রতিষ্ঠান প্যানেল")}
+              </span>
             </div>
           )}
         </div>
@@ -68,7 +75,7 @@ export function TenantSidebar() {
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Academic</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("Academic", "একাডেমিক")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {academicItems.map((item) => (
@@ -76,7 +83,7 @@ export function TenantSidebar() {
                   <SidebarMenuButton asChild>
                     <NavLink to={item.url} end={item.end} className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
-                      {!collapsed && <span>{item.title}</span>}
+                      {!collapsed && <LocaleLabel en={item.en} bn={item.bn} className="text-sm truncate" />}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -86,7 +93,7 @@ export function TenantSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Management</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("Management", "ব্যবস্থাপনা")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {managementItems.map((item) => (
@@ -94,7 +101,7 @@ export function TenantSidebar() {
                   <SidebarMenuButton asChild>
                     <NavLink to={item.url} className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
-                      {!collapsed && <span>{item.title}</span>}
+                      {!collapsed && <LocaleLabel en={item.en} bn={item.bn} className="text-sm truncate" />}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
