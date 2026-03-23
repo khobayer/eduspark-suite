@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const tenantModeData = [
   { name: 'School', value: 98, fill: 'hsl(172, 66%, 30%)' },
