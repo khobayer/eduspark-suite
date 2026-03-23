@@ -22,10 +22,10 @@ const financeChartData = [
 ];
 
 const quickActions = [
-  { label: 'Add Student', icon: UserPlus, href: '/tenant/students/create', color: 'bg-primary/10 text-primary' },
-  { label: 'Record Payment', icon: CreditCard, href: '/tenant/finance', color: 'bg-success/10 text-success' },
-  { label: 'Mark Attendance', icon: CalendarCheck, href: '/tenant/attendance', color: 'bg-info/10 text-info' },
-  { label: 'New Broadcast', icon: MessageSquare, href: '/tenant/broadcast', color: 'bg-warning/10 text-warning' },
+  { label: 'Add Student', labelBn: 'শিক্ষার্থী যোগ', icon: UserPlus, href: '/tenant/students/create', color: 'bg-primary/10 text-primary' },
+  { label: 'Record Payment', labelBn: 'পেমেন্ট রেকর্ড', icon: CreditCard, href: '/tenant/finance', color: 'bg-success/10 text-success' },
+  { label: 'Mark Attendance', labelBn: 'উপস্থিতি চিহ্নিত', icon: CalendarCheck, href: '/tenant/attendance', color: 'bg-info/10 text-info' },
+  { label: 'New Broadcast', labelBn: 'নতুন সম্প্রচার', icon: MessageSquare, href: '/tenant/broadcast', color: 'bg-warning/10 text-warning' },
 ];
 
 const upcomingReminders = [
