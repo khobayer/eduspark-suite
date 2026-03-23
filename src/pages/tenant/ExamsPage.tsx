@@ -30,6 +30,8 @@ import { toast } from "sonner";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const typeLabels: Record<string, string> = {
   term: 'Term Exam', mid_term: 'Mid-Term', final: 'Final Exam', class_test: 'Class Test', mock: 'Mock Test',
