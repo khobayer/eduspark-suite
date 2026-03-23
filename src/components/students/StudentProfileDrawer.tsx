@@ -107,7 +107,7 @@ export function StudentProfileDrawer({ student, onClose }: StudentProfileDrawerP
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-0 divide-y">
-                <InfoRow icon={User} label="Gender" value={student.gender === "male" ? "Male / ছেলে" : "Female / মেয়ে"} />
+                <InfoRow icon={User} label="Gender" value={student.gender === "male" ? t("Male", "ছেলে") : t("Female", "মেয়ে")} />
                 <InfoRow icon={Calendar} label="Date of Birth" value={student.dob} />
                 <InfoRow icon={Droplets} label="Blood Group" value={student.bloodGroup} />
                 <InfoRow icon={Heart} label="Religion" value={student.religion} />
