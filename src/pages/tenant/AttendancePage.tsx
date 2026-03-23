@@ -17,6 +17,8 @@ import { CalendarCheck, Users, UserX, Clock, Check, X, AlertTriangle, Save, Brie
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { toast } from "sonner";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 const statusColors: Record<string, string> = {
   present: 'bg-success text-success-foreground',
