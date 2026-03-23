@@ -23,8 +23,10 @@ import SystemSettingsPage from "./pages/super-admin/SystemSettingsPage";
 
 // Tenant pages
 import TenantDashboard from "./pages/tenant/TenantDashboard";
+import AdmissionPage from "./pages/tenant/AdmissionPage";
 import StudentListPage from "./pages/tenant/StudentListPage";
 import StudentCreatePage from "./pages/tenant/StudentCreatePage";
+import StudentPortalPage from "./pages/tenant/StudentPortalPage";
 import TeachersPage from "./pages/tenant/TeachersPage";
 import AcademicPage from "./pages/tenant/AcademicPage";
 import AttendancePage from "./pages/tenant/AttendancePage";
@@ -64,9 +66,11 @@ const App = () => (
           {/* Tenant Routes */}
           <Route path="/tenant" element={<TenantLayout />}>
             <Route index element={<TenantDashboard />} />
+            <Route path="admission" element={<AdmissionPage />} />
             <Route path="students" element={<StudentListPage />} />
             <Route path="students/create" element={<StudentCreatePage />} />
             <Route path="students/edit/:id" element={<StudentCreatePage />} />
+            <Route path="student-portal" element={<StudentPortalPage />} />
             <Route path="teachers" element={<TeachersPage />} />
             <Route path="academic" element={<AcademicPage />} />
             <Route path="attendance" element={<AttendancePage />} />
