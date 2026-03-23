@@ -195,7 +195,7 @@ export default function StudentCreatePage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                Academic Details / একাডেমিক তথ্য
+                {t("Academic Details", "একাডেমিক তথ্য")}
               </CardTitle>
               <CardDescription>Class, section, and enrollment info</CardDescription>
             </CardHeader>
