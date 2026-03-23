@@ -143,8 +143,8 @@ export default function StudentCreatePage() {
                   <Select onValueChange={(v) => setValue("gender", v as "male" | "female")}>
                     <SelectTrigger><SelectValue placeholder="Select gender" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="male">Male / ছেলে</SelectItem>
-                      <SelectItem value="female">Female / মেয়ে</SelectItem>
+                      <SelectItem value="male">{t("Male", "ছেলে")}</SelectItem>
+                      <SelectItem value="female">{t("Female", "মেয়ে")}</SelectItem>
                     </SelectContent>
                   </Select>
                   {errors.gender && <p className="text-xs text-destructive">{errors.gender.message}</p>}
