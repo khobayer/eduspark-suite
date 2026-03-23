@@ -475,7 +475,7 @@ export default function ExamsPage() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <Card className="h-full">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-semibold">Subject Performance / বিষয়ভিত্তিক পারফরম্যান্স</CardTitle>
+                  <CardTitle className="text-base font-semibold">{t("Subject Performance", "বিষয়ভিত্তিক পারফরম্যান্স")}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[280px]">
