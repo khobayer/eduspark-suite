@@ -18,6 +18,8 @@ import {
 import { broadcastMessages } from "@/data/tenant-data";
 import { Radio, Send, MessageSquare, Mail, CheckCircle2, AlertTriangle, Plus, MoreHorizontal, Eye, Copy, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 import { toast } from "sonner";
 
 const channelConfig: Record<string, { label: string; icon: typeof Send; color: string }> = {
