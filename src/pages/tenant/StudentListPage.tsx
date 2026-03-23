@@ -34,6 +34,7 @@ export default function StudentListPage() {
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const { labels } = useTenant();
+  const { t } = useLocale();
 
   const filtered = useMemo(() => {
     return studentsExtended.filter((s) => {
