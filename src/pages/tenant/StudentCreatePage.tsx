@@ -130,7 +130,7 @@ export default function StudentCreatePage() {
                   {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="nameBn">Name in Bangla / বাংলায় নাম</Label>
+                  <Label htmlFor="nameBn">{t("Name in Bangla", "বাংলায় নাম")}</Label>
                   <Input id="nameBn" placeholder="যেমন: আহমেদ খান" {...register("nameBn")} />
                 </div>
                 <div className="space-y-1.5">
