@@ -6,7 +6,6 @@ import {
   FileText,
   Wallet,
   Settings,
-  UserCheck,
   BookOpen,
   BarChart3,
   Wrench,
@@ -29,11 +28,11 @@ import {
 } from "@/components/ui/sidebar";
 
 const academicItems = [
-  { title: "Dashboard", titleBn: "ড্যাশবোর্ড", url: "/tenant", icon: LayoutDashboard },
+  { title: "Dashboard", titleBn: "ড্যাশবোর্ড", url: "/tenant", icon: LayoutDashboard, end: true },
   { title: "Admission", titleBn: "ভর্তি", url: "/tenant/admission", icon: UserPlus },
   { title: "Students", titleBn: "শিক্ষার্থী", url: "/tenant/students", icon: Users },
   { title: "Student Portal", titleBn: "ছাত্র পোর্টাল", url: "/tenant/student-portal", icon: User },
-  { title: "Teachers", titleBn: "শিক্ষক", url: "/tenant/teachers", icon: GraduationCap },
+  { title: "Teachers & Staff", titleBn: "শিক্ষক", url: "/tenant/teachers", icon: GraduationCap },
   { title: "Academic", titleBn: "একাডেমিক", url: "/tenant/academic", icon: BookOpen },
   { title: "Attendance", titleBn: "উপস্থিতি", url: "/tenant/attendance", icon: CalendarCheck },
   { title: "Exams", titleBn: "পরীক্ষা", url: "/tenant/exams", icon: FileText },
@@ -44,7 +43,6 @@ const managementItems = [
   { title: "Reports", titleBn: "রিপোর্ট", url: "/tenant/reports", icon: BarChart3 },
   { title: "Utilities", titleBn: "ইউটিলিটি", url: "/tenant/utilities", icon: Wrench },
   { title: "Broadcast", titleBn: "সম্প্রচার", url: "/tenant/broadcast", icon: Radio },
-  { title: "Staff", titleBn: "কর্মচারী", url: "/tenant/staff", icon: UserCheck },
   { title: "Settings", titleBn: "সেটিংস", url: "/tenant/settings", icon: Settings },
 ];
 
@@ -76,9 +74,9 @@ export function TenantSidebar() {
               {academicItems.map((item) => (
                 <SidebarMenuItem key={item.url}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} end className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
+                    <NavLink to={item.url} end={item.end} className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
-                      {!collapsed && <span className="text-xs">{item.title}</span>}
+                      {!collapsed && <span>{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -94,9 +92,9 @@ export function TenantSidebar() {
               {managementItems.map((item) => (
                 <SidebarMenuItem key={item.url}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} end className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
+                    <NavLink to={item.url} className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
-                      {!collapsed && <span className="text-xs">{item.title}</span>}
+                      {!collapsed && <span>{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

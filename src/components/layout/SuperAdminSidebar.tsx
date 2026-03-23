@@ -5,13 +5,12 @@ import {
   CreditCard,
   Settings,
   BarChart3,
-  Shield,
-  Bell,
   ToggleRight,
   FileText,
   MessageSquare,
   LifeBuoy,
   ClipboardList,
+  Receipt,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
@@ -28,20 +27,19 @@ import {
 } from "@/components/ui/sidebar";
 
 const mainItems = [
-  { title: "Dashboard", url: "/super-admin", icon: LayoutDashboard },
+  { title: "Dashboard", url: "/super-admin", icon: LayoutDashboard, end: true },
   { title: "Tenants", url: "/super-admin/tenants", icon: Building2 },
   { title: "Plans", url: "/super-admin/plans", icon: CreditCard },
-  { title: "Billing", url: "/super-admin/billing", icon: CreditCard },
+  { title: "Billing", url: "/super-admin/billing", icon: Receipt },
   { title: "Feature Flags", url: "/super-admin/feature-flags", icon: ToggleRight },
   { title: "Templates", url: "/super-admin/templates", icon: FileText },
-  { title: "SMS Usage", url: "/super-admin/sms-usage", icon: MessageSquare },
+  { title: "Communications", url: "/super-admin/sms-usage", icon: MessageSquare },
 ];
 
 const systemItems = [
   { title: "Support Tickets", url: "/super-admin/support", icon: LifeBuoy },
   { title: "Audit Logs", url: "/super-admin/audit-logs", icon: ClipboardList },
   { title: "Users", url: "/super-admin/users", icon: Users },
-  { title: "Analytics", url: "/super-admin/analytics", icon: BarChart3 },
   { title: "Settings", url: "/super-admin/settings", icon: Settings },
 ];
 
@@ -73,7 +71,7 @@ export function SuperAdminSidebar() {
               {mainItems.map((item) => (
                 <SidebarMenuItem key={item.url}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} end className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
+                    <NavLink to={item.url} end={item.end} className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}
                     </NavLink>
@@ -91,7 +89,7 @@ export function SuperAdminSidebar() {
               {systemItems.map((item) => (
                 <SidebarMenuItem key={item.url}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} end className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
+                    <NavLink to={item.url} className="hover:bg-sidebar-accent" activeClassName="bg-sidebar-accent text-sidebar-primary font-medium">
                       <item.icon className="mr-2 h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}
                     </NavLink>
