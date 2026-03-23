@@ -5,13 +5,14 @@ import {
   CalendarCheck,
   FileText,
   Wallet,
-  MessageSquare,
   Settings,
   UserCheck,
   BookOpen,
   BarChart3,
   Wrench,
   Radio,
+  UserPlus,
+  User,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
@@ -29,7 +30,9 @@ import {
 
 const academicItems = [
   { title: "Dashboard", titleBn: "ড্যাশবোর্ড", url: "/tenant", icon: LayoutDashboard },
+  { title: "Admission", titleBn: "ভর্তি", url: "/tenant/admission", icon: UserPlus },
   { title: "Students", titleBn: "শিক্ষার্থী", url: "/tenant/students", icon: Users },
+  { title: "Student Portal", titleBn: "ছাত্র পোর্টাল", url: "/tenant/student-portal", icon: User },
   { title: "Teachers", titleBn: "শিক্ষক", url: "/tenant/teachers", icon: GraduationCap },
   { title: "Academic", titleBn: "একাডেমিক", url: "/tenant/academic", icon: BookOpen },
   { title: "Attendance", titleBn: "উপস্থিতি", url: "/tenant/attendance", icon: CalendarCheck },
