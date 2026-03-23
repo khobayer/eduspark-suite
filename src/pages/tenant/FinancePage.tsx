@@ -17,6 +17,8 @@ import { FinanceAnalyticsTab } from "@/components/finance/FinanceAnalyticsTab";
 import { FinanceDueTrackerTab } from "@/components/finance/FinanceDueTrackerTab";
 import { PaymentEntryDialog } from "@/components/finance/PaymentEntryDialog";
 import { ReceiptPreviewDialog } from "@/components/finance/ReceiptPreviewDialog";
+import { useLocale } from "@/contexts/LocaleContext";
+import { LocaleLabel } from "@/components/shared/LocaleLabel";
 
 export default function FinancePage() {
   const [paymentOpen, setPaymentOpen] = useState(false);
