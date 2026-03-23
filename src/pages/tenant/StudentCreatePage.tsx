@@ -281,11 +281,11 @@ export default function StudentCreatePage() {
                       <Select value={g.relation} onValueChange={(v) => updateGuardian(g.id, "relation", v)}>
                         <SelectTrigger><SelectValue /></SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="father">Father / বাবা</SelectItem>
-                          <SelectItem value="mother">Mother / মা</SelectItem>
-                          <SelectItem value="guardian">Other Guardian / অভিভাবক</SelectItem>
-                          <SelectItem value="uncle">Uncle / চাচা</SelectItem>
-                          <SelectItem value="sibling">Sibling / ভাই/বোন</SelectItem>
+                          <SelectItem value="father">{t("Father", "বাবা")}</SelectItem>
+                          <SelectItem value="mother">{t("Mother", "মা")}</SelectItem>
+                          <SelectItem value="guardian">{t("Other Guardian", "অভিভাবক")}</SelectItem>
+                          <SelectItem value="uncle">{t("Uncle", "চাচা")}</SelectItem>
+                          <SelectItem value="sibling">{t("Sibling", "ভাই/বোন")}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
