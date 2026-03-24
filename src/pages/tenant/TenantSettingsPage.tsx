@@ -156,14 +156,17 @@ export default function TenantSettingsPage() {
 
         {/* Language & Localization */}
         <TabsContent value="language">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+            {/* App Language */}
             <Card>
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
-                  <Globe className="h-5 w-5 text-muted-foreground" />
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+                    <Globe className="h-4.5 w-4.5 text-primary" />
+                  </div>
                   <div>
-                    <CardTitle className="text-base font-semibold">{t("Interface Language", "ইন্টারফেস ভাষা")}</CardTitle>
-                    <CardDescription className="text-xs">{t("Choose the primary language for the interface", "ইন্টারফেসের জন্য প্রাথমিক ভাষা নির্বাচন করুন")}</CardDescription>
+                    <CardTitle className="text-base font-semibold">App Language</CardTitle>
+                    <CardDescription className="text-sm mt-0.5">Choose the main language of the dashboard.</CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -174,127 +177,90 @@ export default function TenantSettingsPage() {
                   className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                 >
                   <label
-                    className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                      lang === "en" ? "border-primary bg-accent/50" : "border-border hover:bg-muted/30"
+                    className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                      lang === "en" ? "border-primary bg-primary/5 shadow-sm" : "border-border hover:border-muted-foreground/30 hover:bg-muted/30"
                     }`}
                   >
                     <RadioGroupItem value="en" />
-                    <div>
-                      <p className="text-sm font-medium">English</p>
-                      <p className="text-xs text-muted-foreground">Use English as the interface language</p>
-                    </div>
+                    <p className="text-sm font-medium">English</p>
                   </label>
                   <label
-                    className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                      lang === "bn" ? "border-primary bg-accent/50" : "border-border hover:bg-muted/30"
+                    className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                      lang === "bn" ? "border-primary bg-primary/5 shadow-sm" : "border-border hover:border-muted-foreground/30 hover:bg-muted/30"
                     }`}
                   >
                     <RadioGroupItem value="bn" />
-                    <div>
-                      <p className="text-sm font-medium">বাংলা</p>
-                      <p className="text-xs text-muted-foreground">ইন্টারফেসের ভাষা হিসেবে বাংলা ব্যবহার করুন</p>
-                    </div>
+                    <p className="text-sm font-medium">বাংলা</p>
                   </label>
                 </RadioGroup>
               </CardContent>
             </Card>
 
+            {/* Text Style */}
             <Card>
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
-                  <Languages className="h-5 w-5 text-muted-foreground" />
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+                    <Languages className="h-4.5 w-4.5 text-primary" />
+                  </div>
                   <div>
-                    <CardTitle className="text-base font-semibold">{t("Label Display Mode", "লেবেল প্রদর্শন মোড")}</CardTitle>
-                    <CardDescription className="text-xs">{t("Control how labels appear throughout the application", "অ্যাপ্লিকেশন জুড়ে লেবেলগুলি কীভাবে প্রদর্শিত হবে তা নিয়ন্ত্রণ করুন")}</CardDescription>
+                    <CardTitle className="text-base font-semibold">Text Style</CardTitle>
+                    <CardDescription className="text-sm mt-0.5">Choose how labels appear across menus, forms, and tables.</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-5">
                 <RadioGroup
                   value={labelMode}
                   onValueChange={(v) => setLabelMode(v as LabelDisplayMode)}
                   className="space-y-3"
                 >
-                  <label
-                    className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                      labelMode === "en" ? "border-primary bg-accent/50" : "border-border hover:bg-muted/30"
-                    }`}
-                  >
-                    <RadioGroupItem value="en" className="mt-0.5" />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium">English Only</p>
-                        {labelMode === "en" && <Badge variant="default" className="text-[10px]">Active</Badge>}
+                  {([
+                    { value: "en", label: "English", desc: "All labels in English" },
+                    { value: "bn", label: "বাংলা", desc: "সকল লেবেল বাংলায়" },
+                    { value: "both", label: "English + বাংলা", desc: "Show both languages side by side" },
+                  ] as const).map((opt) => (
+                    <label
+                      key={opt.value}
+                      className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                        labelMode === opt.value ? "border-primary bg-primary/5 shadow-sm" : "border-border hover:border-muted-foreground/30 hover:bg-muted/30"
+                      }`}
+                    >
+                      <RadioGroupItem value={opt.value} />
+                      <div>
+                        <p className="text-sm font-medium">{opt.label}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">{opt.desc}</p>
                       </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">All labels shown in English</p>
-                      <div className="mt-2 p-2 rounded bg-muted/50 text-xs">
-                        <span className="font-medium">Preview:</span> Dashboard • Students • Attendance • Finance
-                      </div>
-                    </div>
-                  </label>
-
-                  <label
-                    className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                      labelMode === "bn" ? "border-primary bg-accent/50" : "border-border hover:bg-muted/30"
-                    }`}
-                  >
-                    <RadioGroupItem value="bn" className="mt-0.5" />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium">Bangla Only / শুধু বাংলা</p>
-                        {labelMode === "bn" && <Badge variant="default" className="text-[10px]">সক্রিয়</Badge>}
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">সকল লেবেল বাংলায় প্রদর্শিত</p>
-                      <div className="mt-2 p-2 rounded bg-muted/50 text-xs">
-                        <span className="font-medium">প্রিভিউ:</span> ড্যাশবোর্ড • শিক্ষার্থী • উপস্থিতি • আর্থিক
-                      </div>
-                    </div>
-                  </label>
-
-                  <label
-                    className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                      labelMode === "both" ? "border-primary bg-accent/50" : "border-border hover:bg-muted/30"
-                    }`}
-                  >
-                    <RadioGroupItem value="both" className="mt-0.5" />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium">Both Side by Side / উভয়</p>
-                        {labelMode === "both" && <Badge variant="default" className="text-[10px]">Active</Badge>}
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">English and Bangla labels shown together</p>
-                      <div className="mt-2 p-2 rounded bg-muted/50 text-xs">
-                        <span className="font-medium">Preview:</span> Dashboard <span className="text-muted-foreground opacity-70">/ ড্যাশবোর্ড</span> • Students <span className="text-muted-foreground opacity-70">/ শিক্ষার্থী</span>
-                      </div>
-                    </div>
-                  </label>
-                </RadioGroup>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-3">
-                <CardTitle className="text-base font-semibold">{t("Scope & Coverage", "ব্যাপ্তি ও কভারেজ")}</CardTitle>
-                <CardDescription className="text-xs">{t("The language settings apply across the following areas:", "ভাষার সেটিংস নিম্নলিখিত ক্ষেত্রে প্রযোজ্য:")}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {[
-                    { en: "Sidebar Navigation", bn: "সাইডবার নেভিগেশন" },
-                    { en: "Page Titles", bn: "পৃষ্ঠার শিরোনাম" },
-                    { en: "Section Headings", bn: "সেকশন শিরোনাম" },
-                    { en: "Form Labels", bn: "ফর্ম লেবেল" },
-                    { en: "Table Headers", bn: "টেবিল হেডার" },
-                    { en: "Button Labels", bn: "বাটন লেবেল" },
-                    { en: "Status Badges", bn: "স্ট্যাটাস ব্যাজ" },
-                    { en: "Filter Options", bn: "ফিল্টার অপশন" },
-                    { en: "Breadcrumbs", bn: "ব্রেডক্রাম্ব" },
-                  ].map((area) => (
-                    <div key={area.en} className="flex items-center gap-2 p-2.5 rounded-md bg-muted/30 border">
-                      <div className="h-2 w-2 rounded-full bg-primary" />
-                      <span className="text-xs font-medium">{t(area.en, area.bn)}</span>
-                    </div>
+                    </label>
                   ))}
+                </RadioGroup>
+
+                {/* Live Preview */}
+                <div className="rounded-xl border bg-muted/30 p-4">
+                  <p className="text-xs font-medium text-muted-foreground mb-3">Live Preview</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { en: "Dashboard", bn: "ড্যাশবোর্ড" },
+                      { en: "Students", bn: "শিক্ষার্থী" },
+                      { en: "Admission", bn: "ভর্তি" },
+                      { en: "Finance", bn: "আর্থিক" },
+                      { en: "Attendance", bn: "উপস্থিতি" },
+                    ].map((item) => (
+                      <span
+                        key={item.en}
+                        className="inline-flex items-center px-3 py-1.5 rounded-lg bg-background border text-sm font-medium"
+                      >
+                        {labelMode === "en" && item.en}
+                        {labelMode === "bn" && item.bn}
+                        {labelMode === "both" && (
+                          <>
+                            {item.en}
+                            <span className="text-muted-foreground font-normal ml-1.5 text-[0.85em] opacity-60">/ {item.bn}</span>
+                          </>
+                        )}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>
